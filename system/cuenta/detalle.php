@@ -43,8 +43,9 @@
 			}
 			 ?>
 			<label for="clase">Clase</label>
-			<input type="text" class="form-control" id="clase" name="clase" value="<?php echo $usuario['clase']; ?>">
-			<label for="username">Nombre de Usuario</label>
+
+			<input type="text" class="form-control" id="clase" name="clase" value="<?php echo $usuario['clase']; ?>" <?php if($clase_usuario == 'user'){ echo 'readonly'; } ?>>
+			<label for="username">Username</label>
 			<input type="text" class="form-control" id="username" name="username" value="<?php echo $usuario['username']; ?>">
 			<label for="password">Password</label>
 			<input type="text" class="form-control" id="password" name="password" value="<?php echo $usuario['password']; ?>">

@@ -9,6 +9,9 @@ switch ($menu) {
 	case 'usuarios':
 		include("users/users.php");
 		break;
+	case 'articulo':
+		include("articulo/articulo.php");
+		break;
 	
 	default:
 

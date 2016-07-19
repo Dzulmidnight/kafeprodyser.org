@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PRODYSER</title>
+    <title>KAFEPRODYSER</title>
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -45,13 +45,10 @@
 </head>
 
 <body>
-                <!-- Preloader -->
-                <div id="preloader">
-                    <div id="status">&nbsp;</div>
-                </div>
-
-
-
+  <!-- Preloader -->
+  <div id="preloader">
+      <div id="status">&nbsp;</div>
+  </div>
 
   <header id="HOME" style="background-position: 50% -125px;">
     <div class="section_overlay">
@@ -65,19 +62,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a style="margin-top:-11px;" class="navbar-brand" href="#"><img src="images/logo.jpg" alt=""></a>
+              <a style="margin-top:-11px;" class="navbar-brand" href="index.php"><img src="images/logo.jpg" alt=""></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#HOME">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="#">Tienda</a></li>
-                <li><a href="#SERVICE">Servicios</a></li>
-                <li><a href="#ABOUT">¿Quiénes Somos?</a></li>
-                <li><a href="#TESTIMONIAL">Organizaciones</a></li>
-                <li><a href="#WORK">Nuestro Trabajo</a></li>
-                <li><a href="#CONTACT">Contactanos</a></li>
+                <li><a href="index.php#SERVICE">Servicios</a></li>
+                <li><a href="index.php#ABOUT">¿Quiénes Somos?</a></li>
+                <li><a href="index.php#TESTIMONIAL">Organizaciones</a></li>
+                <li><a href="index.php#WORK">Nuestro Trabajo</a></li>
+                <li><a href="index.php#CONTACT">Contactanos</a></li>
                 <li><a href="login.php">Mi Cuenta</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
@@ -102,7 +99,7 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-offset-3 col-lg-6">
             <div class="col-md-12">
               <h3 class="text-center">Iniciar Sesión</h3>
               <?php
@@ -111,7 +108,7 @@
               }
               ?>
               <label for="usuario">Usuario</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu Usuario" required>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu Usuario" autofocus required>
             </div>
             <div class="col-md-12">
               <label for="password">Contraseña</label>
@@ -247,16 +244,6 @@
         </div>
     </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
 
 <!-- =========================
      SCRIPTS 
