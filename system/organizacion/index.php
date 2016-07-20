@@ -86,9 +86,7 @@ $(function () {
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="visible-xs nav navbar-nav navbar-right">
             <li><p style="color:#fff">Organización: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
-            <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
-            <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
-            
+            <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Ciclos</span></a></li>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
@@ -105,9 +103,7 @@ $(function () {
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><p>Organización: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
-            <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
-            <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
-
+            <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Ciclos</span></a></li>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
@@ -115,13 +111,13 @@ $(function () {
         </div>
       	<!------------------------ TERMINA SECCIÓN MENÚ OPCIONES ------------------------------>
 
-      	<!------------------------ INICIA SECCIÓN MENÚ SISTEMA ------------------------------>
+      	<!------------------------ INICIA SELECTOR CICLOS ------------------------------>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <?php 
             include("ciclo/selector.php");
            ?>
         </div>
-      	<!------------------------ TERMINA SECCIÓN MENÚ SISTEMA ------------------------------>
+      	<!------------------------ TERMINA SELECTOR CICLOS ------------------------------>
       </div>
     </div>
 
