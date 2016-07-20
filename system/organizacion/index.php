@@ -54,6 +54,8 @@ $(function () {
   </head>
 
   <?php 
+  
+
   if(isset($_GET['menu'])){
     $menu = $_GET['menu']; 
   }else{
@@ -62,11 +64,10 @@ $(function () {
   
   ?>
 <?php 
-  $idusuario = $_SESSION['idusuario'];
-  $query = "SELECT * FROM usuario WHERE idusuario = $idusuario";
+  $idorganizacion = $_SESSION['idorganizacion'];
+  $query = "SELECT * FROM organizacion WHERE idorganizacion = $idorganizacion";
   $ejecutar = mysql_query($query,$kafeprod_bio) or die(mysql_error());
-  $datos_usuario = mysql_fetch_assoc($ejecutar);
-  $clase_usuario = $datos_usuario['clase'];
+  $datos_organizacion = mysql_fetch_assoc($ejecutar);
  ?>
 
   <body>
@@ -84,10 +85,10 @@ $(function () {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="visible-xs nav navbar-nav navbar-right">
-            <li><p style="color:#fff">Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
+            <li><p style="color:#fff">Organización: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
             <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
             <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
-            <?php if($clase_usuario == 'adm'){ ?><li <?php if($menu == "usuarios"){ echo 'class="active"';}?> ><a href="?menu=usuarios">Usuarios</a></li><?php } ?>
+            
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
@@ -103,10 +104,10 @@ $(function () {
       	<!------------------------ INICIA SECCIÓN MENÚ OPCIONES ------------------------------>
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><p>Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
+            <li><p>Organización: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
             <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
             <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
-            <?php if($clase_usuario == 'adm'){ ?><li <?php if($menu == "usuarios"){ echo 'class="active"';}?> ><a href="?menu=usuarios">Usuarios</a></li><?php } ?>
+
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
@@ -117,7 +118,7 @@ $(function () {
       	<!------------------------ INICIA SECCIÓN MENÚ SISTEMA ------------------------------>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <?php 
-            include("selector.php");
+            include("ciclo/selector.php");
            ?>
         </div>
       	<!------------------------ TERMINA SECCIÓN MENÚ SISTEMA ------------------------------>
