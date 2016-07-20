@@ -11,7 +11,7 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 
 		
 		if(!empty($_FILES['img']['name'])){
-			$ruta_img = "img/notas/";
+			$ruta_img = "../img/notas/";
 			$ruta_img = $ruta_img . basename( $_FILES['img']['name']); 
 			if(move_uploaded_file($_FILES['img']['tmp_name'], $ruta_img)){ 
 				//echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
