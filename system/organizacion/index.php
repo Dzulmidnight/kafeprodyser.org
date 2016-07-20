@@ -100,10 +100,10 @@ $(function () {
     <div class="container-fluid">
       <div class="row">
       	<!------------------------ INICIA SECCIÓN MENÚ OPCIONES ------------------------------>
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-2 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><p>Organización: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
-            <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Ciclos</span></a></li>
+            <li <?php if(empty($menu)){ echo 'class="active"';}else if($menu == 'ciclo'){ echo 'class="active"';} ?>><a href="?menu=ciclo">Ciclos</span></a></li>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
@@ -112,9 +112,9 @@ $(function () {
       	<!------------------------ TERMINA SECCIÓN MENÚ OPCIONES ------------------------------>
 
       	<!------------------------ INICIA SELECTOR CICLOS ------------------------------>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main" style="padding-left:10px;">
           <?php 
-            include("ciclo/selector.php");
+            include("selector_primario.php");
            ?>
         </div>
       	<!------------------------ TERMINA SELECTOR CICLOS ------------------------------>
