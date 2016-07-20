@@ -1,6 +1,6 @@
 <?php 
 	if($_SESSION["autentificado"] == false){
-		header("Location: ../../login.php");
+		header("Location: ../../../login.php");
 	}
 	mysql_select_db($database_kafeprod_bio, $kafeprod_bio);
 

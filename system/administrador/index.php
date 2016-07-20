@@ -1,8 +1,8 @@
 <?php
 // *** Validate request to login to this site.
-	require_once("../connections/sesion.php");
-  require_once("../connections/mail.php");
-  require_once("../connections/kafeprod_bio.php");
+	require_once("../../connections/sesion.php");
+  require_once("../../connections/mail.php");
+  require_once("../../connections/kafeprod_bio.php");
 
     mysql_select_db($database_kafeprod_bio, $kafeprod_bio);
 ?>
@@ -90,7 +90,7 @@ $(function () {
             <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
             <?php if($clase_usuario == 'adm'){ ?><li <?php if($menu == "usuarios"){ echo 'class="active"';}?> ><a href="?menu=usuarios">Usuarios</a></li><?php } ?>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
-            <li><a href="../connections/salir.php">Cerrar Sesión</a></li>
+            <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -105,11 +105,12 @@ $(function () {
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><p>Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
+            <li><p>Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['clase_usuario'];?></strong></p></li>
             <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
             <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
             <?php if($clase_usuario == 'adm'){ ?><li <?php if($menu == "usuarios"){ echo 'class="active"';}?> ><a href="?menu=usuarios">Usuarios</a></li><?php } ?>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
-            <li><a href="../connections/salir.php">Cerrar Sesión</a></li>
+            <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
           </ul>
 
         </div>
