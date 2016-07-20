@@ -39,9 +39,9 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="js/lte-ie7.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
 <body>
@@ -86,7 +86,6 @@
   </header>
 
   <section class="about_us_area" id="ABOUT"> <!-- SECCIÓN LOGIN.PHP  -->
-    <form action="connections/autentificar.php" method="POST">
       <div class="container">
           <div class="row">
               <div class="col-md-12 text-center">
@@ -99,30 +98,75 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-offset-3 col-lg-6">
-            <div class="col-md-12">
-              <h3 class="text-center">Iniciar Sesión</h3>
-              <?php
-              if(isset($_GET['error']) && $_GET['error'] == "si"){
-                echo "<div class='col-md-12 text-center alert alert-danger'><p>Datos Incorrectos</p></div>";
-              }
-              ?>
-              <label for="usuario">Usuario</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu Usuario" autofocus required>
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="text-center">
+                  Tipo de Usuario
+                </h3>                
+              </div>
+
+              <button id="btn_administrador" class="col-md-12 btn btn-primary cs-btn" onclick="administrador()">Administrador</button>
+              <button id="btn_organizacion" class="col-md-12 btn btn-primary cs-btn" onclick="organizacion()">Organización</button>
+
             </div>
-            <div class="col-md-12">
-              <label for="password">Contraseña</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
-              <p><a href="">¿Olvidaste tu contraseña?</a></p>
-            </div>
-            <div class="col-md-12 text-right">
-              <button type="submit" class="btn btn-primary cs-btn">Ingresar</button>  
-            </div>
-            
           </div>
+          <div class="col-lg-6">
+              <form id="frm_administrador" action="connections/autentificar.php" method="POST" style="display:none">
+
+                <div class="col-md-12">
+                  <h3 class="text-center">Iniciar Sesión ADMIN</h3>
+                  <?php
+                  if(isset($_GET['error']) && $_GET['error'] == "si"){
+                    echo "<div class='col-md-12 text-center alert alert-danger'><p>Datos Incorrectos</p></div>";
+                  }
+                  ?>
+
+                  <label for="usuario">Usuario</label>
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu Usuario" autofocus required>
+                </div>
+                <div class="col-md-12">
+                  <label for="password">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
+                  <p><a href="">¿Olvidaste tu contraseña?</a></p>
+                </div>
+                  <input type="hidden" class="form-control" name="clase_usuario" value="administrador" >
+
+                <div class="col-md-12 text-right">
+                  <button type="submit" class="btn btn-primary cs-btn">Ingresar</button>  
+                </div>
+                    
+              </form>
+              <form id="frm_organizacion" action="connections/autentificar.php" method="POST" style="display:none">
+
+                <div class="col-md-12">
+                  <h3 class="text-center">Iniciar Sesión ORG</h3>
+                  <?php
+                  if(isset($_GET['error']) && $_GET['error'] == "si"){
+                    echo "<div class='col-md-12 text-center alert alert-danger'><p>Datos Incorrectos</p></div>";
+                  }
+                  ?>
+
+                  <label for="usuario">Usuario</label>
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu Usuario" autofocus required>
+                </div>
+                <div class="col-md-12">
+                  <label for="password">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
+                  <p><a href="">¿Olvidaste tu contraseña?</a></p>
+                </div>
+                  <input type="hidden" class="form-control" name="clase_usuario" value="organizacion">
+
+                <div class="col-md-12 text-right">
+                  <button type="submit" class="btn btn-primary cs-btn">Ingresar</button>  
+                </div>
+                    
+              </form> 
+
+          </div>
+
         </div>
       </div>
-    </form>
   </section>
 
 
@@ -236,7 +280,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="copyright_text   wow fadeInUp animated">
-                        <p>&copy; Kafe Prodyser 2016.All Right Reserved By <a href="http://www.inforganic.net"target="_blank">inforganic.net</a></p>
+                        <p>&copy; Kafe Prodyser 2016.All Design By <a href="http://www.inforganic.net"target="_blank">inforganic.net</a></p>
                         <!--<p>Made with love for creative people.</p>-->
                     </div>
                 </div>
@@ -249,7 +293,25 @@
      SCRIPTS 
 ============================== -->
 
+<script>
+  function administrador(){
+    document.getElementById('btn_administrador').style.background = '#f74d65';
+    document.getElementById('btn_organizacion').removeAttribute("style");
 
+    document.getElementById('frm_administrador').style.display = 'block';
+    document.getElementById('frm_organizacion').style.display = 'none';
+  }
+  function organizacion()
+  {
+    document.getElementById('btn_administrador').removeAttribute("style");
+    document.getElementById('btn_organizacion').style.background = '#f74d65';
+
+    document.getElementById('frm_organizacion').style.display = 'block';
+    document.getElementById('frm_administrador').style.display = 'none';
+  }
+
+
+</script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nicescroll.js"></script>

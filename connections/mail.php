@@ -1,6 +1,6 @@
 <?php 
-include_once("../PHPMailer/class.phpmailer.php");
-include_once("../PHPMailer/class.smtp.php");
+include_once("../../PHPMailer/class.phpmailer.php");
+include_once("../../PHPMailer/class.smtp.php");
 
 $mail = new PHPMailer();
 $mail->IsSMTP();
