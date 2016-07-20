@@ -1,20 +1,19 @@
 <?php 
-if(isset($_GET['menu'])){
-	$menu = $_GET['menu'];
+
+
+if(isset($_GET['padron'])){
+	echo "PADRON";
 }
-switch ($menu) {
-	case 'cuenta':
-		include('cuenta/detalle.php');
-		break;
-	case 'usuarios':
-		include("users/users.php");
-		break;
-	case 'articulo':
-		include("articulo/articulo.php");
-		break;
-	
-	default:
-		include("");
-		break;
+if(isset($_GET['actividades'])){
+	echo "ACTIVIDADES";
+}
+if(isset($_GET['fotografias'])){
+	echo "FOTOGRAFIAS";
 }
  ?>
+<!--<a class="btn <?php if($menu == 'ciclo'){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=ciclo">Ciclo</a>
+<a class="btn <?php if($menu == 'padron'){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=padron">Padron</a>
+<a class="btn <?php if($menu == 'actividades'){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=actividades">Actividades</a>
+<a class="btn <?php if($menu == 'fotografias'){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=fotografias">Fotografías</a>
+-->
+
