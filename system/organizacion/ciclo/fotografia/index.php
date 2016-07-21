@@ -126,7 +126,7 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
       </form>
     </div>
     <div class="col-md-12">
-      <table  class="table table-bordered">
+      <table  class="table table-bordered table-condensed" style="font-size:12px;">
         <?php 
         while($row_fotografia_list = mysql_fetch_assoc($fotografia_list)){
         ?>
@@ -137,7 +137,7 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
             <td><?php echo $row_fotografia_list['fecha']; ?></td>
           </tr>
           <tr>
-            <td><h3><?php echo $row_fotografia_list['titulo']; ?></h3></td>
+            <td><h5><?php echo $row_fotografia_list['titulo']; ?></h5></td>
           </tr>
           <tr>
             <td><?php echo $row_fotografia_list['descripcion']; ?></td>
