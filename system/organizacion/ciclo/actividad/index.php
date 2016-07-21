@@ -155,7 +155,7 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
               <td><?php echo $row_actividad_list['fecha_inicio']; ?></td>
               <td><?php echo $row_actividad_list['fecha_fin']; ?></td>
               <td><?php echo $row_actividad_list['beneficio_biodiversidad']; ?></td>
-              <td><a class="btn btn-info" href="<?php echo $row_actividad_list['fotografia']; ?>" target="_new"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+              <td><a href="<?php echo $row_actividad_list['fotografia']; ?>" target="_new"><img width="100px;" class="img-thumbnail" src="<?php echo $row_actividad_list['fotografia']; ?>" alt=""></a></td>
             </tr>
             <?php } while ($row_actividad_list = mysql_fetch_assoc($actividad_list)); ?>
         </table>
