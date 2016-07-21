@@ -108,7 +108,7 @@ $padron_list = mysql_query($query_padron_list, $organizacion) or die(mysql_error
   </div>
 </div>
 
-<div class="col-lg-6 col-md-6 col-lg-pull-6" style="padding:0px;">
+<div class="col-lg-6 col-md-6 col-lg-pull-6" >
   <div class="row">
     <div class="col-md-6">
       <b>Padrones agregados a este ciclo</b>
