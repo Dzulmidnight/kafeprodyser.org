@@ -112,7 +112,7 @@ $(function () {
       	<!------------------------ TERMINA SECCIÓN MENÚ OPCIONES ------------------------------>
 
       	<!------------------------ INICIA SELECTOR CICLOS ------------------------------>
-        <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main" style="padding-left:10px;">
+        <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main" style="padding-left:10px;padding-right:0px;">
           <?php 
             include("selector_primario.php");
            ?>
