@@ -64,54 +64,58 @@ $totalRows_padron_list = mysql_num_rows($padron_list);
 ?>
 
 <div class="col-lg-4">
-  <div class="col-lg-2">Padrones agregados a este ciclo</div>
-  <div class="col-lg-1">
-  <form id="form1" name="form1" method="post" action="">
-    <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar padron" />
-    <input name="add_padron" type="hidden" value="1" />
-  </form>
-</div>
-<table class="table table-bordered">
-  <tr>
-    <td>descargar</td>
-    <td>fecha</td>
-    <td>descripcion</td>
-  </tr>
-  <?php do { ?>
-    <tr>
-      <td>icono descarga y link<?php echo $row_padron_list['url']; ?></td>
-      <td><?php echo $row_padron_list['fecha']; ?></td>
-      <td><?php echo $row_padron_list['descripcion']; ?></td>
-    </tr>
-    <?php } while ($row_padron_list = mysql_fetch_assoc($padron_list)); ?>
-</table>
+
+    Padrones agregados a este ciclo
+
+  <div>
+    <form id="form1" name="form1" method="post" action="">
+      <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar padron" />
+      <input name="add_padron" type="hidden" value="1" />
+    </form>
+  </div>
+  <div>
+    <table class="table table-bordered">
+      <tr>
+        <td>descargar</td>
+        <td>fecha</td>
+        <td>descripcion</td>
+      </tr>
+      <?php do { ?>
+        <tr>
+          <td>icono descarga y link<?php echo $row_padron_list['url']; ?></td>
+          <td><?php echo $row_padron_list['fecha']; ?></td>
+          <td><?php echo $row_padron_list['descripcion']; ?></td>
+        </tr>
+        <?php } while ($row_padron_list = mysql_fetch_assoc($padron_list)); ?>
+    </table>    
+  </div>
 </div>
 <div class="col-lg-4">
-<?php if(isset($_POST['add_padron'])){?>
-Agregar padron
-<form method="post" name="form2" action="<?php echo $editFormAction; ?>">
-  <table class="table table-bordered">
-    <tr valign="baseline">
-      <td nowrap align="right">Url:</td>
-      <td><input class="form-control" type="file" name="url" value=""></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap align="right">Fecha:</td>
-      <td><input class="form-control" type="date" name="fecha" value="" ></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap align="right">Descripcion:</td>
-      <td><textarea class="form-control" name="descripcion"></textarea></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap align="right">&nbsp;</td>
-      <td><input class="form-control btn btn-primary" type="submit" value="Insert record"></td>
-    </tr>
-  </table>
-  <input type="hidden" name="idciclo" value="<?php echo $_GET['idciclo']; ?>">
-  <input type="hidden" name="MM_insert" value="form2">
-</form>
-<?php }?>
+  <?php if(isset($_POST['add_padron'])){?>
+  Agregar padron
+  <form method="post" name="form2" action="<?php echo $editFormAction; ?>">
+    <table class="table table-bordered">
+      <tr valign="baseline">
+        <td nowrap align="right">Url:</td>
+        <td><input class="form-control" type="file" name="url" value=""></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Fecha:</td>
+        <td><input class="form-control" type="date" name="fecha" value="" ></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Descripcion:</td>
+        <td><textarea class="form-control" name="descripcion"></textarea></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap align="right">&nbsp;</td>
+        <td><input class="form-control btn btn-primary" type="submit" value="Insert record"></td>
+      </tr>
+    </table>
+    <input type="hidden" name="idciclo" value="<?php echo $_GET['idciclo']; ?>">
+    <input type="hidden" name="MM_insert" value="form2">
+  </form>
+  <?php }?>
 </div>
 
 <?php
