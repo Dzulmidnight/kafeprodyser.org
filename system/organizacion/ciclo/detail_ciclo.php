@@ -109,10 +109,10 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
 
 <div class="col-lg-12">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-3" style="padding:0px;">
 
       <form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2">
-        <table class="table table-bordered" >
+        <table class="table table-bordered table-condensed" style="font-size:12px;" >
           <tr valign="baseline">
             <td nowrap="nowrap" align="right">Ciclo:</td>
             <td><input class="form-control" type="text" name="ciclo" value="<?php echo htmlentities($row_DetailRS1['ciclo'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
@@ -155,7 +155,7 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
     </div>
 
 
-    <div class="col-lg-8">
+    <div class="col-lg-9" style="padding-right:0px;">
     <?php 
       include("selector.php");
     ?>
