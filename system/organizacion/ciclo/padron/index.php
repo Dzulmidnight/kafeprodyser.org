@@ -94,7 +94,7 @@ $padron_list = mysql_query($query_padron_list, $organizacion) or die(mysql_error
           <td><input class="form-control" type="date" name="fecha" value="" ></td>
         </tr>
         <tr valign="baseline">
-          <td nowrap align="right">Descripcion:</td>
+          <td nowrap align="right">Descripción:</td>
           <td><textarea class="form-control" name="descripcion"></textarea></td>
         </tr>
         <tr valign="baseline">
@@ -115,14 +115,14 @@ $padron_list = mysql_query($query_padron_list, $organizacion) or die(mysql_error
     </div>
     <div class="col-md-6">
       <form id="form1" name="form1" method="post" action="">
-        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar" />
+        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Nuevo Padron" />
         <input name="add_padron" type="hidden" value="1" />
       </form>
     </div>
     <div class="col-md-12">
       <table class="table table-bordered" style="font-size:12px;">
         <tr>
-          <td>Descargar</td>
+          <td style="width:80px">Descargar</td>
           <td>Fecha</td>
           <td>Descripción</td>
         </tr>
@@ -130,7 +130,7 @@ $padron_list = mysql_query($query_padron_list, $organizacion) or die(mysql_error
         while($row_padron_list = mysql_fetch_assoc($padron_list)){
         ?>
           <tr>
-            <td><a class="btn btn-primary" href="<?php echo $row_padron_list['url']; ?>" target="_new"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+            <td><a class="btn btn-sm btn-primary" href="<?php echo $row_padron_list['url']; ?>" target="_new"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
             <td><?php echo $row_padron_list['fecha']; ?></td>
             <td><?php echo $row_padron_list['descripcion']; ?></td>
           </tr>

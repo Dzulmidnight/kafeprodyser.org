@@ -75,8 +75,7 @@ if (isset($_GET['idciclo'])) {
 mysql_select_db($database_organizacion, $organizacion);
 $query_actividad_list = sprintf("SELECT * FROM actividad WHERE idciclo = %s ORDER BY fecha_inicio ASC", GetSQLValueString($colname_actividad_list, "int"));
 $actividad_list = mysql_query($query_actividad_list, $organizacion) or die(mysql_error());
-$row_actividad_list = mysql_fetch_assoc($actividad_list);
-$totalRows_actividad_list = mysql_num_rows($actividad_list);
+
 
 
 ?>
@@ -133,7 +132,7 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
     </div>
     <div class="col-md-6">
       <form id="form1" name="form1" method="post" action="">
-        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar actividad" />
+        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Nueva actividad" />
         <input name="add_actividad" type="hidden" value="1" />
       </form>
     </div>
@@ -148,7 +147,9 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
             <td>Beneficio Biodiversidad</td>
             <td>Fotografía</td>
           </tr>
-          <?php do { ?>
+          <?php 
+          while($row_actividad_list = mysql_fetch_assoc($actividad_list)){
+          ?>
             <tr>
               <td><?php echo $row_actividad_list['actividad']; ?></td>
               <td><?php echo $row_actividad_list['descripcion']; ?></td>
@@ -157,7 +158,9 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
               <td><?php echo $row_actividad_list['beneficio_biodiversidad']; ?></td>
               <td><a href="<?php echo $row_actividad_list['fotografia']; ?>" target="_new"><img width="100px;" class="img-thumbnail" src="<?php echo $row_actividad_list['fotografia']; ?>" alt=""></a></td>
             </tr>
-            <?php } while ($row_actividad_list = mysql_fetch_assoc($actividad_list)); ?>
+          <?php
+          }
+           ?>
         </table>
       </div>
     </div>

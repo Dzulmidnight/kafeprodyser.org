@@ -126,15 +126,15 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
             <td><input class="form-control" type="text" name="descripcion" value="<?php echo htmlentities($row_DetailRS1['descripcion'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
           </tr>
           <tr valign="baseline">
-            <td nowrap="nowrap" align="right">Produccion_volumen:</td>
+            <td nowrap="nowrap" align="right">Producción Volumen:</td>
             <td><input class="form-control" type="text" name="produccion_volumen" value="<?php echo htmlentities($row_DetailRS1['produccion_volumen'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
           </tr>
           <tr valign="baseline">
-            <td nowrap="nowrap" align="right">Produccion_superficie:</td>
+            <td nowrap="nowrap" align="right">Producción Superficie:</td>
             <td><input class="form-control" type="text" name="produccion_superficie" value="<?php echo htmlentities($row_DetailRS1['produccion_superficie'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
           </tr>
           <tr valign="baseline">
-            <td nowrap="nowrap" align="right">Numero_productores:</td>
+            <td nowrap="nowrap" align="right">Número Productores:</td>
             <td><input class="form-control" type="text" name="numero_productores" value="<?php echo htmlentities($row_DetailRS1['numero_productores'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
           </tr>
           <tr valign="baseline">

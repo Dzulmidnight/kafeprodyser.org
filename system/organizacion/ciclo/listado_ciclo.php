@@ -199,7 +199,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
             </tr>
             <?php while($row_ciclo = mysql_fetch_assoc($ciclo)){ ?>
               <tr>
-                <td><a href="?menu=ciclo&recordID=<?php echo $row_ciclo['idciclo']; ?>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <?php echo $row_ciclo['idciclo']; ?>&nbsp;cambiar a boton &quot;VER&quot;</a></td>
+                <td><a class="btn btn-sm btn-info" href="?menu=ciclo&recordID=<?php echo $row_ciclo['idciclo']; ?>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <?php echo $row_ciclo['idciclo']; ?></a></td>
                 <td><?php echo $row_ciclo['ciclo']; ?>&nbsp; </td>
                 <td><?php echo $row_ciclo['fecha']; ?>&nbsp; </td>
                 <td><?php echo $row_ciclo['descripcion']; ?>&nbsp; </td>

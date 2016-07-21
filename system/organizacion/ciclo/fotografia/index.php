@@ -121,7 +121,7 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
     </div>
     <div class="col-md-6">
       <form id="form1" name="form1" method="post" action="">
-        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar fotografia" />
+        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Nueva fotografia" />
         <input name="add_fotografia" type="hidden" value="1" />
       </form>
     </div>
