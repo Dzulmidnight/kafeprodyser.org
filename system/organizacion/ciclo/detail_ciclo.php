@@ -156,7 +156,7 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
     </div>
 
 
-    <div class="col-md-8">
+    <div class="col-lg-8">
     <?php 
       include("selector.php");
     ?>

@@ -64,9 +64,9 @@ $totalRows_padron_list = mysql_num_rows($padron_list);
 ?>
 
 <div class="col-lg-4">
-<div class="col-lg-2">Padrones agregados a este ciclo</div>
-<div class="col-lg-1">
-<form id="form1" name="form1" method="post" action="">
+  <div class="col-lg-2">Padrones agregados a este ciclo</div>
+  <div class="col-lg-1">
+  <form id="form1" name="form1" method="post" action="">
     <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar padron" />
     <input name="add_padron" type="hidden" value="1" />
   </form>

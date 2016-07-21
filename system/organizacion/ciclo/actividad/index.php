@@ -76,66 +76,67 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
       <input name="add_actividad" type="hidden" value="1" />
     </form>
   </div>
-<table  class="table table-bordered">
-  <tr>
-    <td>actividad</td>
-    <td>descripcion</td>
-    <td>fecha_inicio</td>
-    <td>fecha_fin</td>
-    <td>beneficio_biodiversidad</td>
-    <td>fotografia</td>
-  </tr>
-  <?php do { ?>
+  <table  class="table table-bordered">
     <tr>
-      <td><?php echo $row_actividad_list['actividad']; ?></td>
-      <td><?php echo $row_actividad_list['descripcion']; ?></td>
-      <td><?php echo $row_actividad_list['fecha_inicio']; ?></td>
-      <td><?php echo $row_actividad_list['fecha_fin']; ?></td>
-      <td><?php echo $row_actividad_list['beneficio_biodiversidad']; ?></td>
-      <td><?php echo $row_actividad_list['fotografia']; ?></td>
+      <td>actividad</td>
+      <td>descripcion</td>
+      <td>fecha_inicio</td>
+      <td>fecha_fin</td>
+      <td>beneficio_biodiversidad</td>
+      <td>fotografia</td>
     </tr>
-    <?php } while ($row_actividad_list = mysql_fetch_assoc($actividad_list)); ?>
-</table>
-</div>
-<div class="col-lg-4">
-<?php if(isset($_POST['add_actividad'])){?>
-Agregar actividad
-<form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2">
-  <table class="table table-bordered" >
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Actividad:</td>
-      <td><input class="form-control" type="text" name="actividad" value="" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right" valign="top">Descripcion:</td>
-      <td><textarea class="form-control" name="descripcion" cols="50" rows="5"></textarea></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Fecha_inicio:</td>
-      <td><input type="date" class="form-control" name="fecha_inicio" value=""/></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Fecha_fin:</td>
-      <td><input type="date" class="form-control" name="fecha_fin" value=""/></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right" valign="top">Beneficio_biodiversidad:</td>
-      <td><textarea class="form-control" name="beneficio_biodiversidad" ></textarea></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Fotografia:</td>
-      <td><input type="file" name="fotografia" value=""  /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input class="form-control btn btn-primary" type="submit" value="Insert record" /></td>
-    </tr>
+    <?php do { ?>
+      <tr>
+        <td><?php echo $row_actividad_list['actividad']; ?></td>
+        <td><?php echo $row_actividad_list['descripcion']; ?></td>
+        <td><?php echo $row_actividad_list['fecha_inicio']; ?></td>
+        <td><?php echo $row_actividad_list['fecha_fin']; ?></td>
+        <td><?php echo $row_actividad_list['beneficio_biodiversidad']; ?></td>
+        <td><?php echo $row_actividad_list['fotografia']; ?></td>
+      </tr>
+      <?php } while ($row_actividad_list = mysql_fetch_assoc($actividad_list)); ?>
   </table>
-  <input type="hidden" name="idciclo" value="<?php echo $_GET['idciclo']; ?>" />
-  <input type="hidden" name="MM_insert" value="form2" />
-</form>
-<p>&nbsp;</p>
-<?php }?>
+</div>
+
+<div class="col-lg-4">
+  <?php if(isset($_POST['add_actividad'])){?>
+  Agregar actividad
+  <form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2">
+    <table class="table table-bordered" >
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right">Actividad:</td>
+        <td><input class="form-control" type="text" name="actividad" value="" /></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right" valign="top">Descripcion:</td>
+        <td><textarea class="form-control" name="descripcion" cols="50" rows="5"></textarea></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right">Fecha_inicio:</td>
+        <td><input type="date" class="form-control" name="fecha_inicio" value=""/></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right">Fecha_fin:</td>
+        <td><input type="date" class="form-control" name="fecha_fin" value=""/></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right" valign="top">Beneficio_biodiversidad:</td>
+        <td><textarea class="form-control" name="beneficio_biodiversidad" ></textarea></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right">Fotografia:</td>
+        <td><input type="file" name="fotografia" value=""  /></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap="nowrap" align="right">&nbsp;</td>
+        <td><input class="form-control btn btn-primary" type="submit" value="Insert record" /></td>
+      </tr>
+    </table>
+    <input type="hidden" name="idciclo" value="<?php echo $_GET['idciclo']; ?>" />
+    <input type="hidden" name="MM_insert" value="form2" />
+  </form>
+  <p>&nbsp;</p>
+  <?php }?>
 </div>
 
 <?php
