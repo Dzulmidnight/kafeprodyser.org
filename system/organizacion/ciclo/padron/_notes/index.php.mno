@@ -1,1 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="UD_padron_list" value="name:idpadron;datatype:int,name:idciclo;datatype:int,name:url;datatype:blob,name:fecha;datatype:string,name:descripcion;datatype:blob" /></info>
