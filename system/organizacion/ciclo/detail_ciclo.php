@@ -146,8 +146,7 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
             <td><input class="form-control" type="text" name="mujeres" value="<?php echo htmlentities($row_DetailRS1['mujeres'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
           </tr>
           <tr valign="baseline">
-            <td nowrap="nowrap" align="right">&nbsp;</td>
-            <td><input class="btn btn-success" type="submit" value="Update record" /></td>
+            <td colspan="2" style="border:hidden;border-top:solid;"><input class="btn btn-success" type="submit" value="Actualizar Ciclo" /></td>
           </tr>
         </table>
         <input type="hidden" name="MM_update" value="form2" />
