@@ -130,8 +130,8 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
         <?php 
         while($row_fotografia_list = mysql_fetch_assoc($fotografia_list)){
         ?>
-          <tr>
-            <td rowspan="4"><img width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></td>
+          <tr >
+            <td rowspan="4" style="width:120px;"><img width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></td>
           </tr>
           <tr>
             <td><?php echo $row_fotografia_list['fecha']; ?></td>
