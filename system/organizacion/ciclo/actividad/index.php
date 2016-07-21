@@ -41,7 +41,20 @@ if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
-if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form2")) {
+if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_actividad")) {
+
+  if(!empty($_FILES['fotografia']['name'])){
+    $ruta_img = "img/actividad/";
+    $ruta_img = $ruta_img . basename( $_FILES['fotografia']['name']); 
+    if(move_uploaded_file($_FILES['fotografia']['tmp_name'], $ruta_img)){ 
+      //echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
+    } /*else{
+      echo "Ha ocurrido un error, trate de nuevo!";
+    }*/
+  }else{
+    $ruta_img = '';
+  }
+
   $insertSQL = sprintf("INSERT INTO actividad (idciclo, actividad, descripcion, fecha_inicio, fecha_fin, beneficio_biodiversidad, fotografia) VALUES (%s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['idciclo'], "int"),
                        GetSQLValueString($_POST['actividad'], "text"),
@@ -49,7 +62,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form2")) {
                        GetSQLValueString($_POST['fecha_inicio'], "text"),
                        GetSQLValueString($_POST['fecha_fin'], "text"),
                        GetSQLValueString($_POST['beneficio_biodiversidad'], "text"),
-                       GetSQLValueString($_POST['fotografia'], "text"));
+                       GetSQLValueString($ruta_img, "text"));
 
   mysql_select_db($database_organizacion, $organizacion);
   $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());
@@ -68,76 +81,89 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
 
 ?>
 
-<div class="col-lg-4">
-  <div class="col-lg-2">Actividades agregadas a este ciclo</div>
-  <div class="col-lg-1">
-    <form id="form1" name="form1" method="post" action="">
-      <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar actividad" />
-      <input name="add_actividad" type="hidden" value="1" />
-    </form>
+<div class="col-lg-6 col-md-6 col-lg-push-6">
+  <div class="row">
+    <?php if(isset($_POST['add_actividad'])){?>
+    <div class="col-md-12">
+      <b>Agregar actividad</b>
+    </div>
+    <div class="col-md-12">
+      <form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2" enctype="multipart/form-data">
+        <table class="table table-bordered table-condensed" style="font-size:12px;">
+          <tr valign="baseline">
+            <td nowrap="nowrap" align="right">Actividad:</td>
+            <td><input class="form-control" type="text" name="actividad" value="" /></td>
+          </tr>
+          <tr valign="baseline">
+            <td nowrap="nowrap" align="right" valign="top">Descripción:</td>
+            <td><textarea class="form-control" name="descripcion" cols="50" rows="5"></textarea></td>
+          </tr>
+          <tr valign="baseline">
+            <td nowrap="nowrap" align="right">Fecha Inicio:</td>
+            <td><input type="date" class="form-control" name="fecha_inicio" value=""/></td>
+          </tr>
+          <tr valign="baseline">
+            <td nowrap="nowrap" align="right">Fecha Fin:</td>
+            <td><input type="date" class="form-control" name="fecha_fin" value=""/></td>
+          </tr>
+          <tr valign="baseline">
+            <td nowrap="nowrap" align="right" valign="top">Beneficio<br>Biodiversidad:</td>
+            <td><textarea class="form-control" name="beneficio_biodiversidad" ></textarea></td>
+          </tr>
+          <tr valign="baseline">
+            <td nowrap="nowrap" align="right">Fotografía:</td>
+            <td><input type="file" name="fotografia" value=""  /></td>
+          </tr>
+          <tr valign="baseline">
+            <td colspan="2"><input class="btn btn-success" type="submit" value="Insertar Actividad" /></td>
+          </tr>
+        </table>
+        <input type="hidden" name="idciclo" value="<?php echo $_GET['idciclo']; ?>" />
+        <input type="hidden" name="MM_insert" value="add_actividad" />
+      </form>
+    </div>
+    <?php }?>
   </div>
-  <table  class="table table-bordered">
-    <tr>
-      <td>actividad</td>
-      <td>descripcion</td>
-      <td>fecha_inicio</td>
-      <td>fecha_fin</td>
-      <td>beneficio_biodiversidad</td>
-      <td>fotografia</td>
-    </tr>
-    <?php do { ?>
-      <tr>
-        <td><?php echo $row_actividad_list['actividad']; ?></td>
-        <td><?php echo $row_actividad_list['descripcion']; ?></td>
-        <td><?php echo $row_actividad_list['fecha_inicio']; ?></td>
-        <td><?php echo $row_actividad_list['fecha_fin']; ?></td>
-        <td><?php echo $row_actividad_list['beneficio_biodiversidad']; ?></td>
-        <td><?php echo $row_actividad_list['fotografia']; ?></td>
-      </tr>
-      <?php } while ($row_actividad_list = mysql_fetch_assoc($actividad_list)); ?>
-  </table>
 </div>
 
-<div class="col-lg-4">
-  <?php if(isset($_POST['add_actividad'])){?>
-  Agregar actividad
-  <form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2">
-    <table class="table table-bordered" >
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right">Actividad:</td>
-        <td><input class="form-control" type="text" name="actividad" value="" /></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right" valign="top">Descripcion:</td>
-        <td><textarea class="form-control" name="descripcion" cols="50" rows="5"></textarea></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right">Fecha_inicio:</td>
-        <td><input type="date" class="form-control" name="fecha_inicio" value=""/></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right">Fecha_fin:</td>
-        <td><input type="date" class="form-control" name="fecha_fin" value=""/></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right" valign="top">Beneficio_biodiversidad:</td>
-        <td><textarea class="form-control" name="beneficio_biodiversidad" ></textarea></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right">Fotografia:</td>
-        <td><input type="file" name="fotografia" value=""  /></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap="nowrap" align="right">&nbsp;</td>
-        <td><input class="form-control btn btn-primary" type="submit" value="Insert record" /></td>
-      </tr>
-    </table>
-    <input type="hidden" name="idciclo" value="<?php echo $_GET['idciclo']; ?>" />
-    <input type="hidden" name="MM_insert" value="form2" />
-  </form>
-  <p>&nbsp;</p>
-  <?php }?>
+<div class="col-lg-6 col-md-6 col-lg-pull-6" style="padding:0px;">
+  <div class="row">
+    <div class="col-md-6">
+      <b>Actividades agregadas a este ciclo</b>
+    </div>
+    <div class="col-md-6">
+      <form id="form1" name="form1" method="post" action="">
+        <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar actividad" />
+        <input name="add_actividad" type="hidden" value="1" />
+      </form>
+    </div>
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table  class="table table-bordered table-condensed" style="font-size:12px;">
+          <tr>
+            <td>Actividad</td>
+            <td>Descripción</td>
+            <td>Fecha Inicio</td>
+            <td>Fecha Fin</td>
+            <td>Beneficio Biodiversidad</td>
+            <td>Fotografía</td>
+          </tr>
+          <?php do { ?>
+            <tr>
+              <td><?php echo $row_actividad_list['actividad']; ?></td>
+              <td><?php echo $row_actividad_list['descripcion']; ?></td>
+              <td><?php echo $row_actividad_list['fecha_inicio']; ?></td>
+              <td><?php echo $row_actividad_list['fecha_fin']; ?></td>
+              <td><?php echo $row_actividad_list['beneficio_biodiversidad']; ?></td>
+              <td><a href="<?php echo $row_actividad_list['fotografia']; ?>" target="_new"><img width="100px;" class="img-thumbnail" src="<?php echo $row_actividad_list['fotografia']; ?>" alt=""></a></td>
+            </tr>
+            <?php } while ($row_actividad_list = mysql_fetch_assoc($actividad_list)); ?>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <?php
 mysql_free_result($actividad_list);
