@@ -3,7 +3,7 @@ if (isset($_GET['recordID'])) {
   $_GET['idciclo'] = $_GET['recordID'];
 }
 ?>
-<?php require_once('../../../Connections/organizacion.php'); ?>
+<?php require_once('../../Connections/organizacion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -69,13 +69,13 @@ $totalRows_actividad_list = mysql_num_rows($actividad_list);
 ?>
 
 <div class="col-lg-4">
-<div class="col-lg-2">Actividades agregadas a este ciclo</div>
-<div class="col-lg-1">
-<form id="form1" name="form1" method="post" action="">
-    <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar actividad" />
-    <input name="add_actividad" type="hidden" value="1" />
-  </form>
-</div>
+  <div class="col-lg-2">Actividades agregadas a este ciclo</div>
+  <div class="col-lg-1">
+    <form id="form1" name="form1" method="post" action="">
+      <input class="btn btn-primary form-control" type="submit" name="button" id="button" value="Agregar actividad" />
+      <input name="add_actividad" type="hidden" value="1" />
+    </form>
+  </div>
 <table  class="table table-bordered">
   <tr>
     <td>actividad</td>

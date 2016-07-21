@@ -2,13 +2,13 @@
 
 
 if(isset($_GET['padron'])){
-	echo "PADRON";
+	include('padron/index.php');
 }
 if(isset($_GET['actividades'])){
-	echo "ACTIVIDADES";
+	include('actividad/index.php');
 }
 if(isset($_GET['fotografias'])){
-	echo "FOTOGRAFIAS";
+	include('fotografia/index.php');
 }
  ?>
 <!--<a class="btn <?php if($menu == 'ciclo'){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=ciclo">Ciclo</a>
