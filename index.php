@@ -72,7 +72,6 @@
 	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                  <ul class="nav navbar-nav navbar-right">
 	                    <li><a href="#HOME">Inicio</a></li>
-                      <li><a href="nota.php">Noticias</a></li>
 	                    <li><a href="#">Tienda</a></li>
                       <li><a href="#SERVICE">Servicios</a></li>
 	                    <li><a href="#ABOUT">¿Quiénes Somos?</a></li>
