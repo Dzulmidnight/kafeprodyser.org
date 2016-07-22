@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-// *** Validate request to login to this site.
-  require_once("connections/sesion.php");
+
   //require_once("connections/mail.php");
   require_once("connections/kafeprod_bio.php");
 
