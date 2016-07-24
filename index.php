@@ -116,7 +116,55 @@
                       </ol>
 
 					
-                     <?php if(isset($_GET['order'])){include("order.php");}?>
+                     <?php if(isset($_GET['order'])){?>
+											 
+
+<section>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="container" style="color:#333">
+<div class="row">
+<h4>Coffee from Chiapas - Orden de compra</h4>
+<br>
+<img width="100%" src="https://pixabay.com/static/uploads/photo/2014/07/22/15/08/a-cup-of-coffee-399478_960_720.jpg" alt="">
+</div>
+<div class="row">
+<div class="col-md-4">
+IMG
+</div>
+<div class="col-lg-8">
+<form  class="form" action=""  method="post">
+<div class="form-group">
+<label for="nombre">Nombre completo</label>
+<input type="text" name="nombre" placeholder="Nombre completo o empresa">
+</div>
+<div class="form-group">
+<label for="nombre">Nombre completo</label>
+<input type="text" name="nombre" placeholder="Nombre completo o empresa">
+</div>
+
+
+Email
+Order your product:
+# Product1
+# Product3
+Quantity
+Delivery Date
+Delivery Address
+Please add any special details relevant for your order:
+<button>Purchase</button> 
+</form>
+</div>
+</div>
+</div>
+</section>
+<?
+											 
+											 
+											 
+											 //include("order.php");
+											 }?>
 						
 						
                       <!-- Wrapper for slides -->
