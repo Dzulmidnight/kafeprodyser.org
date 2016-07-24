@@ -86,13 +86,10 @@ if (!function_exists("GetSQLValueString")) {
 </head>
 
 <body>
-                <!-- Preloader -->
-                <div id="preloader">
-                    <div id="status">&nbsp;</div>
-                </div>
-
-
-
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
 
     <header id="HOME" style="background-position: 50% -125px;">
 	        <div class="section_overlay">
@@ -142,7 +139,7 @@ if (!function_exists("GetSQLValueString")) {
   mysql_select_db($database_organizacion, $organizacion);
   $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());*/
 
-      $nota = sprintf("SELECT contenido_titulo FROM nota WHERE idnota = %s",
+      $nota = sprintf("SELECT contenido_titulo,contenido_descripcion FROM nota WHERE idnota = %s",
         GetSQLValueString($_GET['articulo'],"int"));
       $ejecutar = mysql_query($nota,$kafeprod_bio) or die(mysql_error());
       $titulo_nota = mysql_fetch_assoc($ejecutar);
@@ -158,58 +155,65 @@ if (!function_exists("GetSQLValueString")) {
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="about_title">
-                        <h2><?php echo $titulo_nota['contenido_titulo']; ?></h2>
+                        <h2 style="color:#c0392b"><?php echo $titulo_nota['contenido_titulo']; ?></h2>
                         <img src="images/shape.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="color:#2c3e50">
           <div class="row">
           <?php 
+
+          echo "<div class='col-xs-12'><p class='text-justify'>".$titulo_nota['contenido_descripcion']."</p></div>";
+
           while($row_segmento = mysql_fetch_assoc($ejecutar)){
-                    if($row_segmento['tipo'] == 1){
-                    ?>
-                  <div class="col-xs-6" style="background-color:#95a5a6">
-                    <p>IMAGEN</p>
-                    <img class="img-responsive" src="<?php echo $row_segmento['img']; ?>" alt="">
-                  </div>
-                  <div class="col-xs-6" style="background-color:#bdc3c7">
-                    <p>TEXTO 2</p>
-                    <?php echo $row_segmento['texto2']; ?>
-                  </div>
-                    <?php
-                    }
-                    if($row_segmento['tipo'] == 2){
-                    ?>
-                        <div class="col-xs-12 text-center" style="background-color:#1abc9c">
-                          <p>IMAGEN</p>
-                          <img class="img-responsive"  src="<?php echo $row_segmento['img']; ?>" alt="">
-                        </div>
-                    <?php
-                    }
-                    if($row_segmento['tipo'] == 3){
-                    ?>
-                        <div class="col-xs-12" style="background-color:#27ae60">
-                          <p>TEXTO 1</p>
-                          <?php echo $row_segmento['texto1']; ?>
-                        </div>
-                        <div class="col-xs-12" style="background-color:#2980b9">
-                          <p>TEXTO 2</p>
-                          <?php echo $row_segmento['texto2']; ?>
-                        </div>        
-                    <?php
-                    }
-                    if($row_segmento['tipo'] == 4){
-                    ?>
-                        <div class="col-xs-12" style="background-color:#e74c3c">
-                          <p>TEXTO 2</p>
-                          <?php echo $row_segmento['texto2']; ?>
-                        </div>
-                    <?php
-                    }
-          ?>
-          <?php
+            if($row_segmento['tipo'] == 1){
+            ?>
+          <div class="col-xs-6" >
+
+              <img style="padding:10px;"class="img-responsive" src="system/<?php echo $row_segmento['img']; ?>" alt=""> 
+     
+          </div>
+          <div class="col-xs-6">
+   
+              <p class="text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+  
+          </div>
+            <?php
+            }
+            if($row_segmento['tipo'] == 2){
+            ?>
+              <div class="col-xs-12" style="margin-top:10px;">
+             
+                  <img style="display:block;margin:0 auto 0 auto;" class="img-responsive"  src="system/<?php echo $row_segmento['img']; ?>" alt=""> 
+      
+              </div>
+            <?php
+            }
+            if($row_segmento['tipo'] == 3){
+            ?>
+              <div class="col-xs-12">
+           
+                  <p class="text-justify"><?php echo $row_segmento['texto1']; ?></p> 
+          
+              </div>
+              <div class="col-xs-12">
+       
+                  <p class="text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+   
+              </div>        
+            <?php
+            }
+            if($row_segmento['tipo'] == 4){
+            ?>
+              <div class="col-xs-12" >
+            
+                  <p class="text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+     
+              </div>
+            <?php
+            }
           }
           ?>
 
@@ -220,10 +224,11 @@ if (!function_exists("GetSQLValueString")) {
     }
      ?>
 
-    <h2 class="text-center" style="color:#e67e22;margin-top:2em;">NUESTRO TRABAJO</h2>
+
     <section class="services" id="SERVICE">
         <div class="container">
             <div class="row">
+    <h2 class="text-center" style="color:#e67e22;margin-top:2em;">MÁS PUBLICACIONES</h2>
               <!-------------------------- INICIA SECCIÓN ARTICULOS ---------------------------->
               <?php 
               while($detalle_nota = mysql_fetch_assoc($row_nota)){
@@ -238,13 +243,12 @@ if (!function_exists("GetSQLValueString")) {
                       <div class="col-xs-12">
                         <div class="row">
                           <img style="height:100px;" class="" src="system/<?php echo $img_segmento['img']; ?>" alt="<?php echo $detalle_nota['descripcion_img']; ?>">
-                          
                         </div>
                       </div>
                         <div class="col-xs-12">
                           <div class="col-xs-8">
                             <div class="row">
-                              <h4 class="text-left"><?php echo "<p style='color:#e74c3c'>".$detalle_nota['contenido_titulo']."</p>"; ?></h4>
+                              <h5 style='color:#e74c3c' class="text-left"><?php echo $detalle_nota['contenido_titulo']; ?></h5>
                             </div>
                           </div>
                           <div class="col-xs-4">

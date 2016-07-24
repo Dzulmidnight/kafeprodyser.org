@@ -1,5 +1,4 @@
 <h3>Listado Articulos</h3>
-<!-- Button trigger modal -->
 <?php 
 	$query = "SELECT nota.*,  usuario.username FROM nota INNER JOIN usuario ON nota.idusuario = usuario.idusuario";
 	$row_nota = mysql_query($query,$kafeprod_bio) or die(mysql_error());
@@ -38,56 +37,63 @@
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title text-center" id="myModalLabel"><?php echo $datos_nota['contenido_titulo']; ?></h4>
+			        <h4 class="modal-title text-center" id="myModalLabel" style="color:#2c3e50"><?php echo $datos_nota['contenido_titulo']; ?></h4>
 			      </div>
-			      <div class="modal-body">
+			      <div class="modal-body" style="color:#34495e">
 			      	<div class="row">
 			      		<div class="col-md-12">
-					      <?php 
-					      	echo $datos_nota['contenido_descripcion'];
+					      <?php //nl2br
 
-					      	$query = "SELECT * FROM nota_segmento WHERE idnota = $datos_nota[idnota] ORDER BY tipo ASC";
+					      	echo "<div class='col-xs-12'><p class='text-justify'>".$datos_nota['contenido_descripcion']."</p></div>";
+
+					      	$query = "SELECT * FROM nota_segmento WHERE idnota = $datos_nota[idnota]";
 					      	$row_nota_segmento = mysql_query($query,$kafeprod_bio) or die(mysql_error());
 
 					      	while($nota_segmento = mysql_fetch_assoc($row_nota_segmento)){
 					      		if($nota_segmento['tipo'] == 1){
 					      		?>
-									<div class="col-xs-6" style="background-color:#95a5a6">
-										<p>IMAGEN</p>
-										<img class="img-responsive" src="<?php echo $nota_segmento['img']; ?>" alt="">
+									<div class="col-xs-6" >
+										<div class="row">
+											<img style="padding:10px;"class="img-responsive" src="<?php echo $nota_segmento['img']; ?>" alt="">	
+										</div>
 									</div>
-									<div class="col-xs-6" style="background-color:#bdc3c7">
-										<p>TEXTO 2</p>
-										<?php echo $nota_segmento['texto2']; ?>
+									<div class="col-xs-6">
+										<div class="row">
+											<p class="text-justify"><?php echo $nota_segmento['texto2']; ?></p>	
+										</div>
 									</div>
 					      		<?php
 					      		}
 					      		if($nota_segmento['tipo'] == 2){
 					      		?>
-						      			<div class="col-xs-12 text-center" style="background-color:#1abc9c">
-						      				<p>IMAGEN</p>
-						      				<img class="img-responsive"  src="<?php echo $nota_segmento['img']; ?>" alt="">
-						      			</div>
+					      			<div class="col-xs-12 text-center">
+					      				<div class="row">
+					      					<img style="padding:10px;" class="img-responsive"  src="<?php echo $nota_segmento['img']; ?>" alt="">	
+					      				</div>
+					      			</div>
 					      		<?php
 					      		}
 					      		if($nota_segmento['tipo'] == 3){
 					      		?>
-						      			<div class="col-xs-12" style="background-color:#27ae60">
-						      				<p>TEXTO 1</p>
-						      				<?php echo $nota_segmento['texto1']; ?>
-						      			</div>
-						      			<div class="col-xs-12" style="background-color:#2980b9">
-						      				<p>TEXTO 2</p>
-						      				<?php echo $nota_segmento['texto2']; ?>
-						      			</div>    		
+					      			<div class="col-xs-12">
+					      				<div class="row">
+					      					<p class="text-justify"><?php echo $nota_segmento['texto1']; ?></p>	
+					      				</div>
+					      			</div>
+					      			<div class="col-xs-12">
+					      				<div class="row">
+					      					<p class="text-justify"><?php echo $nota_segmento['texto2']; ?></p>	
+					      				</div>
+					      			</div>    		
 					      		<?php
 					      		}
 					      		if($nota_segmento['tipo'] == 4){
 					      		?>
-						      			<div class="col-xs-12" style="background-color:#e74c3c">
-						      				<p>TEXTO 2</p>
-						      				<?php echo $nota_segmento['texto2']; ?>
-						      			</div>
+					      			<div class="col-xs-12" >
+					      				<div class="row">
+					      					<p class="text-justify"><?php echo $nota_segmento['texto2']; ?></p>	
+					      				</div>
+					      			</div>
 						      	<?php
 					      		}
 					      	}
@@ -101,8 +107,6 @@
 			    </div>
 			  </div>
 			</div>
-
-
 		<?php
 		}
 		 ?>

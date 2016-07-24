@@ -82,59 +82,66 @@
 				    <h3 class="panel-title">Detalle Nota</h3>
 				  </div>
 				  <div class="panel-body">
-					<div class="col-lg-4">
-						<p class="alert alert-info" style="padding:7px;">Usuario: <strong style="color:#c0392b"><?php echo $nota['idusuario']; ?></strong></p>
-						<input type="hidden" name="idusuario" value="<?php echo $nota['idusuario']; ?>">
-					</div>
+				  	<div class="col-lg-6">
+						<div class="col-md-12">
+							<p class="alert alert-info" style="padding:7px;">Usuario: <strong style="color:#c0392b"><?php echo $nota['idusuario']; ?></strong></p>
+							<input type="hidden" name="idusuario" value="<?php echo $nota['idusuario']; ?>">
+						</div>	
+						<div class="col-md-12">
+							<label for="contenido_descripcion">Descripción Nota (contenido_descripcion)</label>
+							<textarea class="textarea form-control" id="contenido_descripcion" name="contenido_descripcion" rows="4" ><?php echo $nota['contenido_descripcion']; ?></textarea>
+						</div>
+						<div class="col-md-12">
+							<label for="descripcion_img">Descripción Imagen</label>
+							<textarea class="form-control" name="descripcion_img" id="descripcion_img" rows="4"><?php echo $nota['descripcion_img']; ?></textarea>
+						</div>
 
-					<div class="col-lg-4">
-						<label for="tipo_nota">Tipo Nota</label>
-						<select class="form-control" name="tipo_nota" id="tipo_nota">
-							<option value="">...</option>
-							<option value="encabezado" <?php if($nota['tipo'] == "encabezado"){echo "selected";} ?>>Encabezado</option>
-							<option value="cuerpo" <?php if($nota['tipo'] == "cuerpo"){echo "selected";} ?>>Cuerpo</option>
-						</select>
-					</div>
-					<div class="col-lg-4">
-						<label for="fecha">Fecha</label>
-						<input class="form-control" type="date" id="fecha" name="fecha" value="<?php echo $fecha; ?>">
+				  	</div>
+				  	<div class="col-lg-6">
+						<div class="col-md-6">
+							<label for="tipo_nota">Tipo Nota</label>
+							<select class="form-control" name="tipo_nota" id="tipo_nota">
+								<option value="">...</option>
+								<option value="encabezado" <?php if($nota['tipo'] == "encabezado"){echo "selected";} ?>>Encabezado</option>
+								<option value="cuerpo" <?php if($nota['tipo'] == "cuerpo"){echo "selected";} ?>>Cuerpo</option>
+							</select>
+						</div>				  		
+						<div class="col-md-6">
+							<label for="fecha">Fecha</label>
+							<input class="form-control" type="date" id="fecha" name="fecha" value="<?php echo $fecha; ?>">
 
-					</div>
+						</div>
+						<div class="col-md-6">
+							<label for="contenido_titulo">Titulo Nota (contenido_titulo)</label>
+							<input type="text" class="form-control" id="contenido_titulo" name="contenido_titulo" value="<?php echo $nota['contenido_titulo']; ?>">
+							<!--<textarea class="textarea form-control" id="contenido_titulo" name="contenido_titulo" rows="4" ><?php echo $nota['contenido_titulo']; ?></textarea>-->
+						</div>
+						<div class="col-md-6">
+							<label for="descripcion1">Descripción 1</label>
+							<input type="text" class="form-control" id="descripcion1" name="descripcion1" value="<?php echo $nota['descripcion1']; ?>">
+							<!--<textarea class="textarea form-control" id="descripcion1" name="descripcion1" rows="4" ><?php echo $nota['descripcion1']; ?></textarea>-->
+						</div>
+						
+						<div class="col-md-6">
+							<label for="descripcion2"> Descripción 2</label>
+							<input type="text" class="form-control" id="descripcion2" name="descripcion2" value="<?php echo $nota['descripcion2']; ?>">
+							<!--<textarea class="textarea form-control" id="descripcion2" name="descripcion2" rows="4" ><?php echo $nota['descripcion2']; ?></textarea>-->
+						</div>
 
-					<div class="col-lg-4 col-sm-6">
-						<label for="descripcion_img">Descripción Imagen</label>
-						<textarea class="form-control" name="descripcion_img" id="descripcion_img" rows="4"><?php echo $nota['descripcion_img']; ?></textarea>
-					</div>
+						<div class="col-md-6">
+							<label for="descripcion3"> Descripción 3</label>
+							<input type="text" class="form-control" id="descripcion3" name="descripcion3" value="<?php echo $nota['descripcion3']; ?>">
+							<!--<textarea class="textarea form-control" id="descripcion3" name="descripcion3" rows="4" ><?php echo $nota['descripcion3']; ?></textarea>-->
+						</div>
+						<div class="col-lg-12">
+							<hr>
+							<input type="hidden" name="idnota" value="<?php echo $nota['idnota']; ?>">
+							<input type="hidden" name="actualizar_nota" value="1">
+							<input class="btn btn-success" type="submit" value="Actualizar Nota">
+						</div>
 
-					<div class="col-lg-4 col-sm-6">
-						<label for="descripcion1">Descripción 1</label>
-						<textarea class="textarea form-control" id="descripcion1" name="descripcion1" rows="4" ><?php echo $nota['descripcion1']; ?></textarea>
-					</div>
-					
-					<div class="col-lg-4 col-sm-6">
-						<label for="descripcion2"> Descripción 2</label>
-						<textarea class="textarea form-control" id="descripcion2" name="descripcion2" rows="4" ><?php echo $nota['descripcion2']; ?></textarea>
-					</div>
-
-					<div class="col-lg-4 col-sm-6">
-						<label for="descripcion3"> Descripción 3</label>
-						<textarea class="textarea form-control" id="descripcion3" name="descripcion3" rows="4" ><?php echo $nota['descripcion3']; ?></textarea>
-					</div>
-
-					<div class="col-lg-4 col-sm-6">
-						<label for="contenido_titulo">Contenido Titulo</label>
-						<textarea class="textarea form-control" id="contenido_titulo" name="contenido_titulo" rows="4" ><?php echo $nota['contenido_titulo']; ?></textarea>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<label for="contenido_descripcion">Contenido Descripción</label>
-						<textarea class="textarea form-control" id="contenido_descripcion" name="contenido_descripcion" rows="4" ><?php echo $nota['contenido_descripcion']; ?></textarea>
-					</div>
+				  	</div>
 				  </div>
-				</div>
-				<div class="col-lg-12">
-					<input type="hidden" name="idnota" value="<?php echo $nota['idnota']; ?>">
-					<input type="hidden" name="actualizar_nota" value="1">
-					<input class="btn btn-success" type="submit" value="Actualizar Nota">
 				</div>
 			</form>
 		</div>
@@ -148,57 +155,65 @@
 				    <h3 class="panel-title">Agregar Nota</h3>
 				  </div>
 				  <div class="panel-body">
-					<div class="col-lg-4">
-						<p class="alert alert-info" style="padding:7px;">Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username']; ?></strong></p>
-						<input type="hidden" name="idusuario" value="<?php echo $_SESSION['idusuario']; ?>">
-					</div>
 
-					<div class="col-lg-4">
-						<label for="tipo_nota">Tipo Nota</label>
-						<select class="form-control" name="tipo_nota" id="tipo_nota">
-							<option value="">...</option>
-							<option value="encabezado">Encabezado</option>
-							<option value="cuerpo">Cuerpo</option>
-						</select>
-					</div>
-					<div class="col-lg-4">
-						<label for="fecha">Fecha</label>
-						<input class="form-control" type="date" id="fecha" name="fecha" required>
-					</div>
+				  	<div class="col-lg-6">
+						<div class="col-md-12">
+							<p class="alert alert-info" style="padding:7px;">Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username']; ?></strong></p>
+							<input type="hidden" name="idusuario" value="<?php echo $_SESSION['idusuario']; ?>">
+						</div>	
+						<div class="col-md-12">
+							<label for="contenido_descripcion">Descripción Nota (contenido_descripcion)</label>
+							<textarea class="textarea form-control" id="contenido_descripcion" name="contenido_descripcion" rows="4" ></textarea>
+						</div>
+						<div class="col-md-12">
+							<label for="descripcion_img">Descripción Imagen</label>
+							<textarea class="form-control" name="descripcion_img" id="descripcion_img" rows="4"></textarea>
+						</div>
 
-					<div class="col-lg-4 col-md-6">
-						<label for="descripcion_img">Descripción Imagen</label>
-						<textarea class="form-control" name="descripcion_img" id="descripcion_img" rows="4"></textarea>
-					</div>
+				  	</div>
+				  	<div class="col-lg-6">
+						<div class="col-md-6">
+							<label for="tipo_nota">Tipo Nota</label>
+							<select class="form-control" name="tipo_nota" id="tipo_nota">
+								<option value="">...</option>
+								<option value="encabezado">Encabezado</option>
+								<option value="cuerpo">Cuerpo</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<label for="fecha">Fecha</label>
+							<input class="form-control" type="date" id="fecha" name="fecha" required>
+						</div>
+						<div class="col-md-6">
+							<label for="contenido_titulo">Titulo Nota (contenido_titulo)</label>
+							<input type="text" class="form-control" id="contenido_titulo" name="contenido_titulo">
+							<!--<textarea class="textarea form-control" id="contenido_titulo" name="contenido_titulo" rows="4" ></textarea>-->
+						</div>
+						<div class="col-md-6">
+							<label for="descripcion1">Descripción 1</label>
+							<input type="text" class="form-control" id="descripcion1" name="descripcion1">
+							<!--<textarea class="textarea form-control" id="descripcion1" name="descripcion1" rows="4" ></textarea>-->
+						</div>
+						
+						<div class="col-md-6">
+							<label for="descripcion2"> Descripción 2</label>
+							<input type="text" class="form-control" id="descripcion2" name="descripcion2">
+							<!--<textarea class="textarea form-control" id="descripcion2" name="descripcion2" rows="4" ></textarea>-->
+						</div>
 
-					<div class="col-lg-4 col-md-6">
-						<label for="descripcion1">Descripción 1</label>
-						<textarea class="textarea form-control" id="descripcion1" name="descripcion1" rows="4" ></textarea>
-					</div>
-					
-					<div class="col-lg-4 col-md-6">
-						<label for="descripcion2"> Descripción 2</label>
-						<textarea class="textarea form-control" id="descripcion2" name="descripcion2" rows="4" ></textarea>
-					</div>
+						<div class="col-md-6">
+							<label for="descripcion3"> Descripción 3</label>
+							<input type="text" class="form-control" id="descripcion3" name="descripcion3">
+							<!--<textarea class="textarea form-control" id="descripcion3" name="descripcion3" rows="4" ></textarea>-->
+						</div>
 
-					<div class="col-lg-4 col-md-6">
-						<label for="descripcion3"> Descripción 3</label>
-						<textarea class="textarea form-control" id="descripcion3" name="descripcion3" rows="4" ></textarea>
-					</div>
-
-					<div class="col-lg-4 col-md-6">
-						<label for="contenido_titulo">Contenido Titulo</label>
-						<textarea class="textarea form-control" id="contenido_titulo" name="contenido_titulo" rows="4" ></textarea>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<label for="contenido_descripcion">Contenido Descripción</label>
-						<textarea class="textarea form-control" id="contenido_descripcion" name="contenido_descripcion" rows="4" ></textarea>
-					</div>
+						<div class="col-lg-12">
+							<hr>
+							<input type="hidden" name="agregar_nota" value="1">
+							<input class="btn btn-success" type="submit" value="Agregar Nota">
+						</div>
+				  	</div>
 				  </div>
-				</div>
-				<div class="col-lg-12">
-					<input type="hidden" name="agregar_nota" value="1">
-					<input class="btn btn-success" type="submit" value="Agregar">
 				</div>
 			</form>
 		</div>
@@ -256,37 +271,4 @@
 			</div>
 		</form>
 	</div>
-
-
-		<!--<div class="col-lg-12">
-
-				<div class="panel panel-primary">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Segmento</h3>
-				  </div>
-				  <div class="panel-body">
-					<div class="col-lg-6">
-						<label for="tipo_segmento">Tipo Segmento</label>
-						<select class="form-control" name="tipo_segmento" id="tipo_segmento">
-							<option value="">...</option>
-							<option value="1">Tipo 1</option>
-							<option value="2">Tipo 2</option>
-							<option value="3">Tipo 3</option>
-							<option value="4">Tipo 4</option>
-						</select>
-					</div>
-					<div class="col-lg-6">
-						<label for="img">Imagen</label>
-						<input class="form-control" type="file" id="img" name="img">			
-					</div>
-
-					<label for="texto1">Texto 1</label>
-					<textarea class="textarea form-control" id="texto1" name="texto1"></textarea>
-					
-					<label for="texto2">Texto 2</label>
-					<textarea class="textarea form-control" id="texto2" name="texto2"></textarea>
-				  </div>
-				</div>
-
-		</div>-->
 </div>

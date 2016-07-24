@@ -11,7 +11,7 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 
 		
 		if(!empty($_FILES['img']['name'])){
-			$ruta_img = "../img/notas/";
+			$ruta_img = "img/notas/";
 			$ruta_img = $ruta_img . basename( $_FILES['img']['name']); 
 			if(move_uploaded_file($_FILES['img']['tmp_name'], $ruta_img)){ 
 				//echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
@@ -153,7 +153,7 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 				  <div class="panel-body">
 					<div class="col-md-6">
 						<label for="tipo_segmento">Tipo Segmento</label>
-						<select class="form-control" name="tipo_segmento" id="tipo_segmento" onchange="myFunction()">
+						<select class="form-control" name="tipo_segmento" id="tipo_segmento" onchange="funcion_segmentos()">
 							<option value="">...</option>
 							<option value="1">Tipo 1</option>
 							<option value="2">Tipo 2</option>
@@ -161,28 +161,28 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 							<option value="4">Tipo 4</option>
 						</select>
 					</div>
-					<div id="img_segmento" class="col-md-6" style="display:block">
+					<div id="img_segmento" class="col-md-6" style="display:none">
 						<div class="row">
 							<label for="img">Imagen</label>
 							<input class="form-control" type="file" id="img" name="img">	
 						</div>		
 					</div>
-					<div id="texto1_segmento" class="col-md-12" style="display:block">
+					<div id="texto1_segmento" class="col-md-12" style="display:none">
 						<div class="row">
-							<label for="texto1">Texto 1</label>
+							<label for="texto1">Subtitulo (Texto 1)</label>
 							<textarea class="textarea form-control" id="texto1" name="texto1"></textarea>	
 						</div>					
 					</div>
-					<div id="texto2_segmento" class="col-md-12" style="display:block">
+					<div id="texto2_segmento" class="col-md-12" style="display:none">
 						<div class="row">
-							<label for="texto2">Texto 2</label>
+							<label for="texto2">Contenido (Texto 2)</label>
 							<textarea class="textarea form-control" id="texto2" name="texto2"></textarea>	
 						</div>
 					</div>
 				  </div>
 				</div>
 				<input type="hidden" name="agregar_segmento" value="1">
-				<input class="btn btn-success" type="submit" value="Agregar">
+				<input class="btn btn-success" type="submit" value="Agregar Segmento">
 			</form>
 		</div>
 	<?php
@@ -245,10 +245,10 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 									
 					</div>
 					<div class="col-md-12">
-						<label for="texto1">Texto 1</label>
+						<label for="texto1">Subtitulo (Texto 1)</label>
 						<textarea class="textarea form-control" id="texto1" name="texto1"><?php echo $datos_segmento['texto1']; ?></textarea>
 						
-						<label for="texto2">Texto 2</label>
+						<label for="texto2">Contenido (Texto 2)</label>
 						<textarea class="textarea form-control" id="texto2" name="texto2"><?php echo $datos_segmento['texto2']; ?></textarea>
 					</div>
 				  </div>
@@ -270,8 +270,8 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 					  			<th>Id</th>
 					  			<th>Nota</th>
 					  			<th>Tipo</th>
-					  			<th>Texto1</th>
-					  			<th>Texto2</th>
+					  			<th>Subtitulo (Texto1)</th>
+					  			<th>Contenido (Texto2)</th>
 					  			<th>Imagen</th>
 					  		</tr>
 					  	</thead>
@@ -309,8 +309,8 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 					  	</tbody>
 					  </table>
 					</div>
-					<input type="hidden" name="agregar_segmento" value="1">
-					<input class="btn btn-success" type="submit" value="Agregar">
+					<!--<input type="hidden" name="agregar_segmento" value="1">
+					<input class="btn btn-success" type="submit" value="Agregar Segmento">-->
 				</form>
 			<?php
 			}
@@ -322,69 +322,30 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 </div>
 
 <script>
-	/* SEGMENTO TIPO 1
-		*img_segmento
-		*texto2_segmento
-	*/
-	function myFunction() {
+	function funcion_segmentos() {
 	    var x = document.getElementById("tipo_segmento").value;
 	    if(x == 1){
-			document.getElementById('img_segmento').style.display = 'none';
+			document.getElementById('img_segmento').style.display = 'block';
+			document.getElementById('texto1_segmento').style.display = 'none';
+			document.getElementById('texto2_segmento').style.display = 'block';
+			
+	    }
+	    if(x == 2){
+			document.getElementById('img_segmento').style.display = 'block';
+			document.getElementById('texto1_segmento').style.display = 'none';
 			document.getElementById('texto2_segmento').style.display = 'none';
 	    }
-	    if(x == 1){
-		document.getElementById('img_segmento').style.display = 'block';
-		document.getElementById('texto2_segmento').style.display = 'block';
-	    }
 
-	    if(x == 1){
-		document.getElementById('img_segmento').style.display = 'block';
-		document.getElementById('texto2_segmento').style.display = 'block';
-	    }
-
-	    if(x == 1){
+	    if(x == 3){
 			document.getElementById('img_segmento').style.display = 'none';
-			document.getElementById('texto2_segmento').style.display = 'none';
+			document.getElementById('texto1_segmento').style.display = 'block';
+			document.getElementById('texto2_segmento').style.display = 'block';
+	    }
+	    if(x == 4){
+			document.getElementById('img_segmento').style.display = 'none';
+			document.getElementById('texto1_segmento').style.display = 'none';
+			document.getElementById('texto2_segmento').style.display = 'block';
 	    }
 	    
 	}
-
-
-	/* SEGMENTO TIPO 2
-		*img_segmento
-	*/
-
-
-	/* SEGMENTO TIPO 3
-		*texto1_segmento
-		*texto2_segmento
-	*/
-
-
-	/* SEGMENTO TIPO 4
-		*texto2_segmento
-	*/
-
-	function segmento4(){
-		document.getElementById('img_segmento').style.display = 'block';
-		document.getElementById('texto2_segmento').style.display = 'block';
-	}
-
-  /*function administrador(){
-    document.getElementById('btn_administrador').style.background = '#f74d65';
-    document.getElementById('btn_organizacion').removeAttribute("style");
-
-    document.getElementById('frm_administrador').style.display = 'block';
-    document.getElementById('frm_organizacion').style.display = 'none';
-  }
-  function organizacion()
-  {
-    document.getElementById('btn_administrador').removeAttribute("style");
-    document.getElementById('btn_organizacion').style.background = '#f74d65';
-
-    document.getElementById('frm_organizacion').style.display = 'block';
-    document.getElementById('frm_administrador').style.display = 'none';
-  }
-*/
-
 </script>
