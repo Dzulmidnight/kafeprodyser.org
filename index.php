@@ -115,13 +115,20 @@
                        
                       </ol>
 
+					
+                     <?php if(isset($_GET['order'])){include("order.php");}?>
+						
+						
                       <!-- Wrapper for slides -->
                       <div class="carousel-inner" role="listbox">
+                      
+                     
+                      
                         <div class="item active ">
                           <img  src="images/carousel/taza1.jpg" alt="...">
                           <div class="carousel-caption ">
                             <h2></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa consequatur impedit eligendi</p>
+                            <p>111 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa consequatur impedit eligendi</p>
                           </div>
                         </div>
                         <div class="item">
@@ -200,32 +207,40 @@
     <section class="services" id="SERVICE">
         <div class="container">
             <div class="row">
+            <a name="order"></a>
+            
+            
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="1s">
                         <i><img src="images/fruto.png" alt=""></i>
-                        <h2 style="margin-top:80px;">PROCESO1</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2 style="margin-top:80px;">Cereza</h2>
+                        <p>El rendimiento  de cereza a  pergamino es:
+245:57.5</p>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="2s">
                         <i><img src="images/grano.png" alt=""></i>
-                        <h2 style="margin-top:90px;">PROCESO2</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2 style="margin-top:90px;">Tostado</h2>
+                        <p>El rendimiento  de  oro a tostado es:
+aprox. 46:37</p>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="3s">
                         <i><img src="images/molido7.jpg" alt=""></i>
-                        <h2>PROCESO3</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2>Molido</h2>
+                        <p>El rendimiento  de  tostado a  molido es prácticamente de 100 %</p>
                     </div>
                 </div>
+                
+                
+                
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="4s">
                         <i><img src="images/taza4.jpg" alt=""></i>
-                        <h2>PROCESO4</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2>Black Coffee</h2>
+                        <p>From Chiapas 100%<br><a href="index.php?order=true">ORDER NOW!</a></p>
                     </div>
                 </div>
             </div>            
@@ -244,6 +259,7 @@
         </div>
         <div class="container">
             <div class="row">
+            
                 <div class="col-md-4  wow fadeInLeft animated">
                     <div class="single_progress_bar">
                         <h2>DESIGN - 90%</h2>
