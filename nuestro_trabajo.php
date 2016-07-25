@@ -51,6 +51,8 @@ if (!function_exists("GetSQLValueString")) {
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
     <!-- Font Awesome -->
 
 
@@ -150,7 +152,7 @@ if (!function_exists("GetSQLValueString")) {
       $ejecutar = mysql_query($query_segmento,$kafeprod_bio) or die(mysql_error());
       
     ?>
-    <section class="about_us_area" id="ABOUT">
+    <section class=" estilo_noticia" id="">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -161,11 +163,11 @@ if (!function_exists("GetSQLValueString")) {
                 </div>
             </div>
         </div>
-        <div class="container" style="color:#2c3e50">
+        <div class="container" style="">
           <div class="row">
           <?php 
 
-          echo "<div class='col-xs-12'><p class='text-justify'>".$titulo_nota['contenido_descripcion']."</p></div>";
+          echo "<div class='col-xs-12'><p class='estilo_noticia text-justify'>".$titulo_nota['contenido_descripcion']."</p></div>";
 
           while($row_segmento = mysql_fetch_assoc($ejecutar)){
             if($row_segmento['tipo'] == 1){
@@ -177,7 +179,7 @@ if (!function_exists("GetSQLValueString")) {
           </div>
           <div class="col-xs-6">
    
-              <p class="text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+              <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto2']; ?></p> 
   
           </div>
             <?php
@@ -186,7 +188,7 @@ if (!function_exists("GetSQLValueString")) {
             ?>
               <div class="col-xs-12" style="margin-top:10px;">
              
-                  <img style="display:block;margin:0 auto 0 auto;" class="img-responsive"  src="system/<?php echo $row_segmento['img']; ?>" alt=""> 
+                  <img style="padding:10px; display:block;margin:0 auto 0 auto;" class="img-responsive"  src="system/<?php echo $row_segmento['img']; ?>" alt=""> 
       
               </div>
             <?php
@@ -195,12 +197,12 @@ if (!function_exists("GetSQLValueString")) {
             ?>
               <div class="col-xs-12">
            
-                  <p class="text-justify"><?php echo $row_segmento['texto1']; ?></p> 
+                  <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto1']; ?></p> 
           
               </div>
               <div class="col-xs-12">
        
-                  <p class="text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+                  <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto2']; ?></p> 
    
               </div>        
             <?php
@@ -209,7 +211,7 @@ if (!function_exists("GetSQLValueString")) {
             ?>
               <div class="col-xs-12" >
             
-                  <p class="text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+                  <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto2']; ?></p> 
      
               </div>
             <?php
@@ -228,7 +230,14 @@ if (!function_exists("GetSQLValueString")) {
     <section class="services" id="SERVICE">
         <div class="container">
             <div class="row">
-    <h2 class="text-center" style="color:#e67e22;margin-top:2em;">MÁS PUBLICACIONES</h2>
+              <?php
+              if(isset($_GET['articulo'])){
+              ?>
+                <h2 class="text-center" style="color:#e67e22;margin-top:2em;">MÁS PUBLICACIONES</h2>
+              <?php
+              }
+              ?>
+
               <!-------------------------- INICIA SECCIÓN ARTICULOS ---------------------------->
               <?php 
               while($detalle_nota = mysql_fetch_assoc($row_nota)){
@@ -248,7 +257,7 @@ if (!function_exists("GetSQLValueString")) {
                         <div class="col-xs-12">
                           <div class="col-xs-8">
                             <div class="row">
-                              <h5 style='color:#e74c3c' class="text-left"><?php echo $detalle_nota['contenido_titulo']; ?></h5>
+                              <h5 style='color:#e74c3c' class="estilo_noticia text-left"><?php echo $detalle_nota['contenido_titulo']; ?></h5>
                             </div>
                           </div>
                           <div class="col-xs-4">
@@ -259,7 +268,7 @@ if (!function_exists("GetSQLValueString")) {
                         </div>
                         <div class="col-xs-12">
                           <div class="row">
-                            <p style="text-align:justify"><?php echo substr($descripcion, 0, 200)." ..."; ?></p>    
+                            <p class="estilo_noticia" style="text-align:justify"><?php echo substr($descripcion, 0, 200)." ..."; ?></p>    
                           </div>
                         </div>
                         <div class="col-xs-12 text-left">
