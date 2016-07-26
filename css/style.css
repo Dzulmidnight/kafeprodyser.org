@@ -13,7 +13,22 @@ h1, h2, h3, h4, h5, h6{
 }
 .estilo_noticia{
 	font-weight: 300;
-	font-size: 15px;
+	font-size: 17px;
+	font-family: 'Open Sans', sans-serif;
+}
+.subtitulo_noticia{
+	color: #2c3e50;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 18px;
+	font-family: 'Open Sans', sans-serif;
+
+}
+.descripcion_noticia{
+	color: #7f8c8d;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 17px;
 	font-family: 'Open Sans', sans-serif;
 }
 

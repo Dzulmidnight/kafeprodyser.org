@@ -141,7 +141,7 @@ if (!function_exists("GetSQLValueString")) {
   mysql_select_db($database_organizacion, $organizacion);
   $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());*/
 
-      $nota = sprintf("SELECT contenido_titulo,contenido_descripcion FROM nota WHERE idnota = %s",
+      $nota = sprintf("SELECT contenido_titulo,contenido_descripcion,descripcion_img  FROM nota WHERE idnota = %s",
         GetSQLValueString($_GET['articulo'],"int"));
       $ejecutar = mysql_query($nota,$kafeprod_bio) or die(mysql_error());
       $titulo_nota = mysql_fetch_assoc($ejecutar);
@@ -167,14 +167,14 @@ if (!function_exists("GetSQLValueString")) {
           <div class="row">
           <?php 
 
-          echo "<div class='col-xs-12'><p class='estilo_noticia text-justify'>".$titulo_nota['contenido_descripcion']."</p></div>";
+          echo "<div class='col-xs-12'><p class='descripcion_noticia text-justify'>".$titulo_nota['contenido_descripcion']."</p></div>";
 
           while($row_segmento = mysql_fetch_assoc($ejecutar)){
             if($row_segmento['tipo'] == 1){
             ?>
           <div class="col-xs-6" >
 
-              <img style="padding:10px;"class="img-responsive" src="system/<?php echo $row_segmento['img']; ?>" alt=""> 
+              <img style="padding:10px;"class="img-responsive" src="system/img/<?php echo $row_segmento['img']; ?>" alt="<?php echo $titulo_nota['descripcion_img']; ?>"> 
      
           </div>
           <div class="col-xs-6">
@@ -188,7 +188,7 @@ if (!function_exists("GetSQLValueString")) {
             ?>
               <div class="col-xs-12" style="margin-top:10px;">
              
-                  <img style="padding:10px; display:block;margin:0 auto 0 auto;" class="img-responsive"  src="system/<?php echo $row_segmento['img']; ?>" alt=""> 
+                  <img style="padding:10px; display:block;margin:0 auto 0 auto;" class="img-responsive"  src="system/img/<?php echo $row_segmento['img']; ?>" alt=""> 
       
               </div>
             <?php
@@ -197,12 +197,12 @@ if (!function_exists("GetSQLValueString")) {
             ?>
               <div class="col-xs-12">
            
-                  <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto1']; ?></p> 
+                  <h2 class="subtitulo_noticia text-justify"><?php echo $row_segmento['texto1']; ?></h2> 
           
               </div>
               <div class="col-xs-12">
        
-                  <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+                  <p class="estilo_noticia text-justify"><?php echo nl2br($row_segmento['texto2']); ?></p> 
    
               </div>        
             <?php
@@ -211,7 +211,7 @@ if (!function_exists("GetSQLValueString")) {
             ?>
               <div class="col-xs-12" >
             
-                  <p class="estilo_noticia text-justify"><?php echo $row_segmento['texto2']; ?></p> 
+                  <p class="estilo_noticia text-justify"><?php echo nl2br($row_segmento['texto2']); ?></p> 
      
               </div>
             <?php
@@ -241,7 +241,8 @@ if (!function_exists("GetSQLValueString")) {
               <!-------------------------- INICIA SECCIÓN ARTICULOS ---------------------------->
               <?php 
               while($detalle_nota = mysql_fetch_assoc($row_nota)){
-                $query_segmento = mysql_query("SELECT img FROM nota_segmento WHERE idnota = $detalle_nota[idnota] LIMIT 1",$kafeprod_bio) or die(mysql_error());
+                //$query_segmento mysql_query("SELECT img FROM nota_segmento WHERE idnota = $detalle_nota[idnota] AND img != '' LIMIT 1", $kafeprod_bio) or die(mysql_error());
+                $query_segmento = mysql_query("SELECT img FROM nota_segmento WHERE idnota = $detalle_nota[idnota] AND img != '' LIMIT 1",$kafeprod_bio) or die(mysql_error());
                 $img_segmento = mysql_fetch_assoc($query_segmento);
                 //retiramos las etiquetas html que contiene la descripción para despues solo mostrar 200 caracteres
                 $descripcion = strip_tags($detalle_nota['contenido_descripcion']);
@@ -251,7 +252,8 @@ if (!function_exists("GetSQLValueString")) {
                       <!----- INICIA SECCION DE LA NOTICIA ---->
                       <div class="col-xs-12">
                         <div class="row">
-                          <img style="height:100px;" class="" src="system/<?php echo $img_segmento['img']; ?>" alt="<?php echo $detalle_nota['descripcion_img']; ?>">
+                          <img style="height:100px;" class="" src="system/img/<?php echo $img_segmento['img']; ?>" alt="<?php echo $detalle_nota['descripcion_img']; ?>">
+                          <!--<a target="_new" href="system/img/<?php echo $img_segmento['img']; ?>"><?php echo "system/img/".$img_segmento['img']; ?></a>-->
                         </div>
                       </div>
                         <div class="col-xs-12">
