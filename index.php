@@ -495,8 +495,10 @@ aprox. 46:37</p>
                 </div>
                 <div class="col-md-9  wow fadeInRight animated">
                 <iframe name="destino" width="1" height="1" ></iframe>
-           
-  <form class="contact-form" action="mail.php" method="post"  >
+             <?php
+if (!isset($_POST['email'])) {
+?>
+  <form class="contact-form" action="" method="post"  >
                     
                     
                         <div class="row">
@@ -508,7 +510,21 @@ aprox. 46:37</p>
                             <div class="col-md-6">
                                 <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
                         <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button> 
-                
+                       <?php } else{
+  $mensaje="Mensaje del formulario de contacto ";
+  $mensaje.= "\nNombre: ". $_POST['name'];
+  $mensaje.= "\nEmail: ".$_POST['email'];
+  $mensaje.= "\nAsunto: ". $_POST['subject'];
+  $mensaje.= "\nMensaje: \n".$_POST['message'];
+  $destino= "Amirv90@gmail.com.com";
+  $remitente = $_POST['email'];
+  $asunto = "Mensaje enviado por: ".$_POST['name'];
+  mail($destino,$asunto,$mensaje,"FROM: $remitente");
+?>
+ 
+<?php
+}
+?>              
                                      
  
                           
