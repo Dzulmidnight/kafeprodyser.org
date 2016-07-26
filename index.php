@@ -510,21 +510,58 @@ if (!isset($_POST['email'])) {
                             <div class="col-md-6">
                                 <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
                         <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button> 
-                       <?php } else{
+                       <?php } else{/*
   $mensaje="Mensaje del formulario de contacto ";
   $mensaje.= "\nNombre: ". $_POST['name'];
   $mensaje.= "\nEmail: ".$_POST['email'];
   $mensaje.= "\nAsunto: ". $_POST['subject'];
   $mensaje.= "\nMensaje: \n".$_POST['message'];
-  $destino= "Amirv90@gmail.com.com";
+  $destino= "Amirv90@gmail.com";
   $remitente = $_POST['email'];
   $asunto = "Mensaje enviado por: ".$_POST['name'];
   mail($destino,$asunto,$mensaje,"FROM: $remitente");
 ?>
  
 <?php
+}*/
+
+
+$destino1=$_POST['email'];
+$remitente = "Contacto Kafeprodyser<donotreply@certimexsc.com>";
+$asunto= $_POST['subject'];
+$mensaje='
+
+                <div class="col-md-9  wow fadeInRight animated">
+            
+  <form class="contact-form" action="" method="post"  >
+                    
+                    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input readonly type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                <input readonly type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <input readonly type="text" class="form-control" name="subject" id="subject" placeholder="Subject">                                
+                            </div>
+                            <div class="col-md-6">
+                                <textarea readonly class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
+                         
+                                   
+                            </div>
+                        </div>
+            </form>           
+                    
+                </div>
+
+
+';
+$encabezados = "From: $remitente\nReply-To: $remitente\nContent-Type: text/html; charset=iso-8859-1";
+mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio.");	
+//FIN NOTIFICACION POR CORREO
 }
-?>              
+?>
+
+
+              
                                      
  
                           
