@@ -1,6 +1,42 @@
 <?php 
+if (!function_exists("GetSQLValueString")) {
+  function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+  {
+    if (PHP_VERSION < 6) {
+      $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+    }
+
+    $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+    switch ($theType) {
+      case "text":
+        $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+        break;    
+      case "long":
+      case "int":
+        $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+        break;
+      case "double":
+        $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+        break;
+      case "date":
+        $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+        break;
+      case "defined":
+        $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+        break;
+    }
+    return $theValue;
+  }
+}
+	/*
+	ENCABEZADO: Son notas que se mostraran en el carousel
+	CUERPO: Son notas que se mostraran en la sección de noticias
+	*/
+
 	$time_actual = time();
 	$fecha = date("d/m/Y",$time_actual);
+
 
 	if(isset($_POST['agregar_nota']) && $_POST['agregar_nota'] == 1){
 
@@ -14,8 +50,19 @@
 		$descripcion3 = $_POST['descripcion3'];
 		$contenido_titulo = $_POST['contenido_titulo'];
 		$contenido_descripcion = $_POST['contenido_descripcion'];
+
+		$query = sprintf("INSERT INTO nota (tipo, fecha, idusuario, descripcion_img, descripcion1, descripcion2, descripcion3, contenido_titulo, contenido_descripcion) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+           GetSQLValueString($tipo_nota, "text"),
+           GetSQLValueString($fecha, "int"),
+           GetSQLValueString($idusuario, "int"),
+           GetSQLValueString($descripcion_img, "text"),
+           GetSQLValueString($descripcion1, "text"),
+           GetSQLValueString($descripcion2, "text"),
+           GetSQLValueString($descripcion3, "text"),
+           GetSQLValueString($contenido_titulo, "text"),
+           GetSQLValueString($contenido_descripcion, "text"));
 		
-		$query = "INSERT INTO nota (tipo, fecha, idusuario, descripcion_img, descripcion1, descripcion2, descripcion3, contenido_titulo, contenido_descripcion) VALUES('$tipo_nota', $fecha, $idusuario, '$descripcion_img', '$descripcion1', '$descripcion2', '$descripcion3', '$contenido_titulo', '$contenido_descripcion')";
+		//$query = "INSERT INTO nota (tipo, fecha, idusuario, descripcion_img, descripcion1, descripcion2, descripcion3, contenido_titulo, contenido_descripcion) VALUES('$tipo_nota', $fecha, $idusuario, '$descripcion_img', '$descripcion1', '$descripcion2', '$descripcion3', '$contenido_titulo', '$contenido_descripcion')";
 		$insertar = mysql_query($query,$kafeprod_bio) or die(mysql_error()); 
 		$mensaje = "Se ha agregado una nueva nota";
 

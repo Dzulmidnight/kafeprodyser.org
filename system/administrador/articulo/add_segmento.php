@@ -28,6 +28,15 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 
 		$mensaje = "Segmento Agregado Correctamente";
 }
+if(isset($_POST['eliminar_segmento']) && $_POST['eliminar_segmento'] == 1){
+	$idnota_segmento = $_POST['idnota_segmento'];
+	$query = "DELETE FROM nota_segmento WHERE idnota_segmento = $idnota_segmento";
+	$eliminar = mysql_query($query,$kafeprod_bio) or die(mysql_error());
+
+	$mensaje = "Segmento Eliminado Correctamente";
+
+}
+
 
 	$query = "SELECT nota.*, usuario.username FROM nota LEFT JOIN usuario ON nota.idusuario = usuario.idusuario";
 	$row_nota = mysql_query($query,$kafeprod_bio) or die(mysql_errno());
@@ -46,9 +55,9 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
  		}
  		 ?>
 	</div>
-	
-	<div class="col-md-4" style="padding:0px;">
-		<div class="col-xs-12" style="padding:0px;">
+	<!--- INICIA SECCION LISTADO NOTAS ---->
+	<div class="col-lg-4" style="padding:0px;">
+		<div class="col-md-12" style="padding:0px;">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
 			    <h3 class="panel-title">Listado Notas</h3>
@@ -96,7 +105,8 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 				  </table>
 			</div>
 		</div>
-		<div class="col-xs-12" style="padding:0px;">
+
+		<div class="col-md-12" style="padding:0px;">
 		<?php 
 		if(isset($_GET['segmento']) && $_GET['segmento'] != 0){
 			$idnota = $_GET['detail'];
@@ -139,50 +149,75 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 		 ?>
 		</div>
 	</div>
-
+	<!--- INICIA SECCION LISTADO NOTAS ---->
 	<?php 
 	if(isset($_GET['nota']) && $_GET['nota'] != ''){
 	?>
-		<div class="col-md-8" style="padding:0px;">
+		<div class="col-lg-8" style="padding:0px;">
 			<form action="" method="POST" enctype="multipart/form-data">
-
 				<div class="panel panel-primary">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Agregar Segmento1</h3>
-				  </div>
-				  <div class="panel-body">
-					<div class="col-md-6">
-						<label for="tipo_segmento">Tipo Segmento</label>
-						<select class="form-control" name="tipo_segmento" id="tipo_segmento" onchange="funcion_segmentos()">
-							<option value="">...</option>
-							<option value="1">Tipo 1</option>
-							<option value="2">Tipo 2</option>
-							<option value="3">Tipo 3</option>
-							<option value="4">Tipo 4</option>
-						</select>
+					<div class="panel-heading">
+					    <h3 class="panel-title">Agregar Segmento</h3>
 					</div>
-					<div id="img_segmento" class="col-md-6" style="display:none">
-						<div class="row">
-							<label for="img">Imagen</label>
-							<input class="form-control" type="file" id="img" name="img">	
-						</div>		
-					</div>
-					<div id="texto1_segmento" class="col-md-12" style="display:none">
-						<div class="row">
-							<label for="texto1">Subtitulo (Texto 1)</label>
-							<textarea class="textarea form-control" id="texto1" name="texto1"></textarea>	
-						</div>					
-					</div>
-					<div id="texto2_segmento" class="col-md-12" style="display:none">
-						<div class="row">
-							<label for="texto2">Contenido (Texto 2)</label>
-							<textarea class="textarea form-control" id="texto2" name="texto2"></textarea>	
+					<div class="panel-body">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-4">
+							
+									<p>Tipo Segmento</p>	
+									
+										<button style="padding:0px; margin:0px;" type="button" class="btn btn-default" onclick="segmento_tipo1()">
+											<img style="width:80px;" src="../../images/segmento_tipo1.png" alt="">
+										</button>
+										<button style="padding:0px; margin:0px;" type="button" class="btn btn-default" onclick="segmento_tipo2()"> 
+											<img style="width:80px;" src="../../images/segmento_tipo2.png" alt="">	
+										</button>
+										<button style="padding:0px; margin:0px;" type="button" class="btn btn-default" onclick="segmento_tipo3()">
+											<img style="width:80px;" src="../../images/segmento_tipo3.png" alt="">									
+										</button>
+										<button style="padding:0px; margin:0px;" type="button" class="btn btn-default" onclick="segmento_tipo4()">
+											<img style="width:80px;" src="../../images/segmento_tipo4.png" alt="">										
+										</button>
+									<!--<label for="tipo_segmento">Tipo Segmento</label>-->
+
+									<!--<select class="form-control" name="tipo_segmento" id="tipo_segmento" onchange="funcion_segmentos()">
+										<option value="">...</option>
+										<option value="1">Tipo 1</option>
+										<option value="2">Tipo 2</option>
+										<option value="3">Tipo 3</option>
+										<option value="4">Tipo 4</option>
+									</select>-->
+									<input type="hidden" id="tipo_segmento" name="tipo_segmento" value="">
+								</div>
+
+								<div id="img_segmento" class="col-md-6" style="display:none">
+									<div class="row">
+										<label for="img">Imagen</label>
+										<input class="form-control" type="file" id="img" name="img">	
+									</div>		
+								</div>
+								<div id="texto1_segmento" class="col-md-6" style="display:none">
+									<div class="row">
+										<label for="texto1">Subtitulo (Texto 1)</label>
+										<textarea class="textarea form-control" id="texto1" name="texto1"></textarea>	
+									</div>					
+								</div>
+								<div id="texto2_segmento" class="col-md-6" style="display:none">
+									<div class="row">
+										<label for="texto2">Contenido (Texto 2)</label>
+										<textarea class="textarea form-control" id="texto2" name="texto2"></textarea>	
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="row">
+										<input type="hidden" name="agregar_segmento" value="1">
+										<input class="btn btn-success" type="submit" value="Agregar Segmento"> 	
+									</div>	
+								</div>
+							</div>
 						</div>
 					</div>
-				  </div>
 				</div>
-				<input type="hidden" name="agregar_segmento" value="1">
-				<input class="btn btn-success" type="submit" value="Agregar Segmento">
 			</form>
 		</div>
 	<?php
@@ -253,8 +288,7 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 					</div>
 				  </div>
 				</div>
-				<input type="hidden" name="agregar_segmento" value="1">
-				<input class="btn btn-success" type="submit" value="Agregar">
+
 			</form>
 			<?php
 			}else{
@@ -293,14 +327,15 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 										<?php
 					  					}else{
 					  					?>
-											<a href="<?php echo $nota_segmento['img']; ?>" target="_blank"><img  class="img-thumbnail" style="width:80px;height:80px;" src="<?php echo $nota_segmento['img']; ?>" alt=""></a>
+											<a href="../<?php echo $nota_segmento['img']; ?>" target="_blank"><img  class="img-thumbnail" style="width:80px;height:80px;" src="../<?php echo $nota_segmento['img']; ?>" alt=""></a>
 					  					<?php
 					  					}
 					  					 ?>
 					  				</td>
 					  				<td>
+					  					<input type="hidden" name="idnota_segmento" value="<?php echo $nota_segmento['idnota_segmento']; ?>">
 					  					<a class="btn btn-warning" data-toggle="tooltip" title="Editar Segmento" href="?menu=articulo&add_segmento&detail=1&segmento=<?php echo $nota_segmento['idnota_segmento']; ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-					  					<button class="btn btn-danger" data-toggle="tooltip" title="Eliminar Segmento" type="submit" onclick="return confirm('¿Está seguro ?, los datos se eliminaran permanentemente');"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></button>
+					  					<button class="btn btn-danger" name="eliminar_segmento" value="1" data-toggle="tooltip" title="Eliminar Segmento" type="submit" onclick="return confirm('¿Está seguro ?, los datos se eliminaran permanentemente');"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span></button>
 					  				</td>
 					  			</tr>
 					  		<?php
@@ -309,8 +344,8 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 					  	</tbody>
 					  </table>
 					</div>
-					<!--<input type="hidden" name="agregar_segmento" value="1">
-					<input class="btn btn-success" type="submit" value="Agregar Segmento">-->
+					<input type="hidden" name="agregar_segmento" value="1">
+					<input class="btn btn-success" type="submit" value="Agregar Segmento">
 				</form>
 			<?php
 			}
@@ -322,7 +357,40 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 </div>
 
 <script>
-	function funcion_segmentos() {
+	function segmento_tipo1(){
+			document.getElementById('img_segmento').style.display = 'block';
+			document.getElementById('texto1_segmento').style.display = 'none';
+			document.getElementById('texto2_segmento').style.display = 'block';
+			document.getElementById("tipo_segmento").value=1;
+	}
+	function segmento_tipo2(){
+			document.getElementById('img_segmento').style.display = 'block';
+			document.getElementById('texto1_segmento').style.display = 'none';
+			document.getElementById('texto2_segmento').style.display = 'none';	
+			document.getElementById("tipo_segmento").value=2;
+	}
+	function segmento_tipo3(){
+			document.getElementById('img_segmento').style.display = 'none';
+			document.getElementById('texto1_segmento').style.display = 'block';
+			document.getElementById('texto2_segmento').style.display = 'block';	
+			document.getElementById("tipo_segmento").value=3;
+	}
+	function segmento_tipo4(){
+			document.getElementById('img_segmento').style.display = 'none';
+			document.getElementById('texto1_segmento').style.display = 'none';
+			document.getElementById('texto2_segmento').style.display = 'block';	
+			document.getElementById("tipo_segmento").value=4;
+	}
+
+
+
+
+function myFunction() {
+    
+}
+
+
+	/*function funcion_segmentos() {
 	    var x = document.getElementById("tipo_segmento").value;
 	    if(x == 1){
 			document.getElementById('img_segmento').style.display = 'block';
@@ -347,5 +415,5 @@ if(isset($_POST['agregar_segmento']) && $_POST['agregar_segmento'] == 1){
 			document.getElementById('texto2_segmento').style.display = 'block';
 	    }
 	    
-	}
+	}*/
 </script>
