@@ -45,6 +45,7 @@
 </head>
 
 <body>
+
                 <!-- Preloader -->
                 <div id="preloader">
                     <div id="status">&nbsp;</div>
@@ -493,18 +494,26 @@ aprox. 46:37</p>
                     </div>
                 </div>
                 <div class="col-md-9  wow fadeInRight animated">
-                    <form class="contact-form" action="">
+                <iframe name="destino" width="1" height="1" ></iframe>
+             
+  <form class="contact-form" action="mail.php" method="post" >
+                    
+                    
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">                                
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">                                
                             </div>
                             <div class="col-md-6">
-                                <textarea class="form-control" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
-                                <button type="button" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button>                                
+                                <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
+                        <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button>               
+                                     
+ 
+                          
                             </div>
                         </div>
+                       
                     </form>
                 </div>
             </div>
