@@ -54,16 +54,16 @@
 
 
     <header id="HOME" style="background-position: 50% -125px;">
-	        <div class="section_overlay">
+	        <div class="section_overlay"> 
 	            <nav class="navbar navbar-default navbar-fixed-top">
 	              <div class="container">
 	                <!-- Brand and toggle get grouped for better mobile display -->
 	                <div class="navbar-header">
 	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar">1</span>
+	                    <span class="icon-bar">2</span>
+	                    <span class="icon-bar">3</span>
 	                  </button>
 	                  <a style="margin-top:-11px;" class="navbar-brand" href="index.php"><img src="images/logo.jpg" alt=""></a>
 	                </div>
