@@ -115,16 +115,74 @@
                        
                       </ol>
 
+					
+                     <?php if(isset($_GET['order'])){?>
+											 
+
+<section>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="container" style="color:#333">
+<div class="row">
+<h4>Coffee from Chiapas - Orden de compra</h4>
+<br>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<br>
+<p>&nbsp;</p><p>&nbsp;</p>
+<img width="360" src="images/14u.jpg" alt="">
+</div>
+<div class="col-lg-6">
+<form  class=" inline-form" action=""  method="post">
+<div class="form-group">
+<label for="nombre">Nombre completo</label>
+<input required class="form-control" type="text" name="nombre" placeholder="Nombre completo o empresa">
+</div>
+<div class="form-group">
+<label for="nombre">Email</label>
+<input required class="form-control" type="email" name="email" placeholder="Email de contacto">
+</div>
+<div class="form-group">
+<img class=" img-thumbnail" width="100" src="images/producto1.png" alt="">
+<label for="producto1">Kafe prodyser<br>Presentación 1Kg, Gourmet Tostado y molido</label>
+</div>
+<div class="form-group">
+<label for="nombre">Cantidad</label>
+<input  class="form-control" type="number" name="cantidad" placeholder="Cantidad">
+</div>
+<div class="form-group">
+<label for="nombre">Información de envio:</label>
+<textarea class="form-control"  name="envio"></textarea>
+</div>
+<div class="form-group">
+<label for="nombre">Detalles especiales:</label>
+<textarea class="form-control"  name="detalles"></textarea>
+</div>
+
+<button class=" form-control bnt btn-primary">Enviar orden</button> 
+</form>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</section>
+<?
+											 
+											 
+											 
+											 //include("order.php");
+											 }?>
+						
+						
                       <!-- Wrapper for slides -->
                       <div class="carousel-inner" role="listbox">
+                      
+                     
+                      
                         <div class="item active ">
-                          <img  src="images/carousel/taza1.jpg" alt="...">
-                          <div class="carousel-caption ">
-                            <h2></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa consequatur impedit eligendi</p>
-                          </div>
-                        </div>
-                        <div class="item">
                           <img src="images/carousel/cerazasCafe.jpg" alt="servicio agricola sajiem s.c">
                           <div class="carousel-caption">
                             <h2>LOREM</h2>
@@ -140,6 +198,7 @@
                           <img src="images/carousel/granosCafe.jpg" alt="servicio agricola sajiem s.c">
                           <div class="carousel-caption">
                             <h2>LOREM</h2>
+                            <small>Tenemos a la venta cafè tostado y molido ORGANICO, informes a los telefonos 961 611 0563 o directamente en nuestras oficinas en 15 Oriente Sur 370, Col. Santa Cruz Tuxtla Gutierrez, Chiapas.</small>
                           </div>
                         </div>
                         <div class="item">
@@ -160,33 +219,13 @@
                             <h2>LOREM</h2>
                           </div>
                         </div>
-                        <div class="item">
-                          <img src="images/carousel/jaguar2.jpg" alt="servicio forestal sajiem s.c">
-                          <div class="carousel-caption">
-                            <h2>LOREM</h2>
-                          </div>
-                        </div>
 
 
-
-                        <!--<div class="item">
-                          <img src="images/forestal2.jpg" alt="servicio forestal sajiem s.c">
-                          <div class="carousel-caption">
-                            <h2>FORESTAL</h2>
-                          </div>
-                        </div>-->
 
                       </div>
 
-                      <!-- Controls -->
-                      <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>-->
+
+                      
                     </div>                  
                 </div>
 
@@ -200,32 +239,41 @@
     <section class="services" id="SERVICE">
         <div class="container">
             <div class="row">
+            <a name="order"></a>
+            
+            
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="1s">
                         <i><img src="images/fruto.png" alt=""></i>
-                        <h2 style="margin-top:80px;">PROCESO1</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2 style="margin-top:80px;">Cereza</h2>
+                        <p>El rendimiento  de cereza a  pergamino es:
+245:57.5</p>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="2s">
                         <i><img src="images/grano.png" alt=""></i>
-                        <h2 style="margin-top:90px;">PROCESO2</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2 style="margin-top:90px;">Tostado</h2>
+                        <p>El rendimiento  de  oro a tostado es:
+aprox. 46:37</p>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="3s">
                         <i><img src="images/molido7.jpg" alt=""></i>
-                        <h2>PROCESO3</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <h2>Molido</h2>
+                        <p>El rendimiento  de  tostado a  molido es prácticamente de 100 %</p>
                     </div>
                 </div>
+                
+                
+                
                 <div class="col-md-3 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="4s">
-                        <i><img src="images/taza4.jpg" alt=""></i>
-                        <h2>PROCESO4</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                        <i><a href="index.php?order=true"><img src="images/taza4.jpg" alt="" border="0"></a></i>
+                      <h2>Black Coffee</h2>
+                        <p>From Chiapas 100%<br>
+                        <a href="index.php?order=true">ORDER NOW!</a></p>
                     </div>
                 </div>
             </div>            
@@ -244,6 +292,7 @@
         </div>
         <div class="container">
             <div class="row">
+            
                 <div class="col-md-4  wow fadeInLeft animated">
                     <div class="single_progress_bar">
                         <h2>DESIGN - 90%</h2>
@@ -392,39 +441,7 @@
                         </div>                        
                     </div>
                 </div>
-            </div>
-            <div class="row pad_top">
-                <div class="col-md-4 no_padding">
-                    <div class="single_image">
-                        <img src="images/w4.jpg" alt="">
-                        <div class="image_overlay">
-                            <a href="">View Full Project</a>
-                            <h2>drawing</h2>
-                            <h4>with pencil colors</h4>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="col-md-4 no_padding">
-                    <div class="single_image">
-                        <img src="images/w5.jpg" alt="">
-                        <div class="image_overlay">
-                            <a href="">View Full Project</a>
-                            <h2>drawing</h2>
-                            <h4>with pencil colors</h4>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="col-md-4 no_padding">
-                    <div class="single_image last_padding">
-                        <img src="images/w6.jpg" alt="">
-                        <div class="image_overlay">
-                            <a href="">View Full Project</a>
-                            <h2>drawing</h2>
-                            <h4>with pencil colors</h4>
-                        </div>                        
-                    </div>
-                </div>
-            </div>           
+            </div>      
         </div>
     </section>
     <section class="call_to_action">
