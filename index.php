@@ -180,7 +180,7 @@ $mensaje='
   </tr>
   <tr>
     <td height="200" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #D35400; font-weight: bold; text-align: center;">
-	Correo enviado desde la sección Orden de compra de la pagina [www.prodyser.org].<br>
+	Correo enviado desde la sección Orden de compra de la pagina [www.kafeprodyser.org].<br>
 	
 	<table border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
   <tr>
@@ -571,12 +571,12 @@ if (!isset($_POST['email'])) {
                     
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">                                
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Nombre o empresa">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email de contacto">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">                                
                             </div>
                             <div class="col-md-6">
-                                <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Mensaje..."></textarea>
                         <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button> 
                        <?php } else{
 						   
@@ -586,11 +586,11 @@ $asunto= $_POST['subject'];
 $mensaje='
 <table width="99%" border="0" align="center">
   <tr>
-    <td bgcolor="#E59866" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #FDFEFE; font-size: 18px; text-align: center;">Prodyser, Notificación automatica</td>
+    <td bgcolor="#E59866" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #FDFEFE; font-size: 18px; text-align: center;">Kafeprodyser, Notificación automatica</td>
   </tr>
   <tr>
     <td height="200" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #D35400; font-weight: bold; text-align: center;">
-	Hola este es un correo enviado desde la sección de contacto de la pagina [www.prodyser.org].<br>
+	Hola este es un correo enviado desde la sección de contacto de la pagina [www.kafeprodyser.org].<br>
 	
 	<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
   <tr>
