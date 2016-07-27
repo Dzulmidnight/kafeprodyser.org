@@ -118,7 +118,7 @@
 
 					
                      <?php if(isset($_GET['order'])){?>
-											 
+	  								 
 
 <section>
 <p>&nbsp;</p>
@@ -136,14 +136,18 @@
 <img width="360" src="images/14u.jpg" alt="">
 </div>
 <div class="col-lg-6">
+<?php
+
+if (!isset($_POST['email_orden'])) {
+?>		
 <form  class=" inline-form" action=""  method="post">
 <div class="form-group">
 <label for="nombre">Nombre completo</label>
-<input required class="form-control" type="text" name="nombre" placeholder="Nombre completo o empresa">
+<input required class="form-control" type="text" name="nombre_orden" placeholder="Nombre completo o empresa">
 </div>
 <div class="form-group">
 <label for="nombre">Email</label>
-<input required class="form-control" type="email" name="email" placeholder="Email de contacto">
+<input required class="form-control" type="email" name="email_orden" placeholder="Email de contacto">
 </div>
 <div class="form-group">
 <img class=" img-thumbnail" width="100" src="images/producto1.png" alt="">
@@ -151,18 +155,82 @@
 </div>
 <div class="form-group">
 <label for="nombre">Cantidad</label>
-<input  class="form-control" type="number" name="cantidad" placeholder="Cantidad">
+<input  class="form-control" type="number" name="cantidad_orden" placeholder="Cantidad">
 </div>
 <div class="form-group">
 <label for="nombre">Información de envio:</label>
-<textarea class="form-control"  name="envio"></textarea>
+<textarea class="form-control"  name="envio_orden"></textarea>
 </div>
 <div class="form-group">
 <label for="nombre">Detalles especiales:</label>
-<textarea class="form-control"  name="detalles"></textarea>
+<textarea class="form-control"  name="detalles_orden"></textarea>
 </div>
 
-<button class=" form-control bnt btn-primary">Enviar orden</button> 
+<button type="submit" value="enviar" class="btn btn-primary submit-btn form_submit">Enviar orden</button>
+
+<?php } else{
+	?><label for="nombre"><h5>ORDEN ENVIADA</h5></label> <?						   
+$destino1="isc.jesusmartinez@gmail.com,Amirv90@gmail.com";
+$remitente = "Orden de compra Kafeprodyser<donotreply@kafeprodyser.org>";
+$asunto= "Orden de compra";
+$mensaje='
+<table width="99%" border="0" align="center">
+  <tr>
+    <td bgcolor="#E59866" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #FDFEFE; font-size: 18px; text-align: center;">Coffee from Chiapas - Orden de compra</td>
+  </tr>
+  <tr>
+    <td height="200" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #D35400; font-weight: bold; text-align: center;">
+	Correo enviado desde la sección Orden de compra de la pagina [www.prodyser.org].<br>
+	
+	<table border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+  
+    <td>
+      <table  border="1" align="center" >
+      <tr>
+        <td colspan="2" align="center" style="font-size: 18px">Información de contacto:</td>
+        
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Nombre completo:</td>
+        <td align="center" bgcolor="#FDFEFE  " style="color: #17202A">'.$_POST['nombre_orden'].'</td>
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Email:</td>
+        <td align="center" bgcolor="#FDFEFE  " style="color: #17202A">'.$_POST['email_orden'].'</td>
+      </tr>
+      <tr>
+	  <td colspan="2" bgcolor="#17202A" style="color: #FFF"> Kafe prodyser<br>Presentación 1Kg, Gourmet Tostado y molido</td>
+	  </tr>
+	  <tr>
+	 
+        <td bgcolor="#E59866" style="color: #FFF">Cantidad:</td>
+        <td bgcolor="#FDFEFE  " style="color: #17202A">'.$_POST['cantidad_orden'].'</td>
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Información de envio:</td>
+        <td bgcolor="#FDFEFE  " style="color: ##17202A">'.$_POST['envio_orden'].'</td>
+      </tr>
+	  <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Detalles especiales:</td>
+        <td bgcolor="#FDFEFE  " style="color: ##17202A">'.$_POST['detalles_orden'].'</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+    </td>
+  </tr>
+  
+</table>
+';
+$encabezados = "From: $remitente\nReply-To: $remitente\nContent-Type: text/html; charset=iso-8859-1";
+mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio.");	
+//FIN NOTIFICACION POR CORREO
+?>
+ 
+<?php
+}
+?>              
 </form>
 </div>
 </div>
