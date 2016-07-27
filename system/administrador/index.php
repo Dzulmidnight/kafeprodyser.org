@@ -27,6 +27,9 @@
 
     <!-- Custom styles for this template -->
     <link href="../dashboard.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href="../../css/style.css" rel="stylesheet">
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -86,6 +89,7 @@ $(function () {
             <li><p style="color:#fff">Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
             <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
             <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
+            <li <?php if($menu == "organizacion"){ echo 'class="active"';} ?>><a href="?menu=organizacion&listado_organizacion">Organizaciones</a></li>
             <?php if($clase_usuario == 'adm'){ ?><li <?php if($menu == "usuarios"){ echo 'class="active"';}?> ><a href="?menu=usuarios">Usuarios</a></li><?php } ?>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>
@@ -105,6 +109,7 @@ $(function () {
             <li><p>Usuario: <strong style="color:#c0392b"><?php echo $_SESSION['username'];?></strong></p></li>
             <li <?php if(empty($menu)){ echo 'class="active"';} ?>><a href="index.php">Inicio</span></a></li>
             <li <?php if($menu == "articulo"){ echo 'class="active"';} ?>><a href="?menu=articulo&listado">Articulos</a></li>
+            <li <?php if($menu == "organizacion"){ echo 'class="active"';} ?>><a href="?menu=organizacion&listado_organizacion">Organizaciones</a></li>
             <?php if($clase_usuario == 'adm'){ ?><li <?php if($menu == "usuarios"){ echo 'class="active"';}?> ><a href="?menu=usuarios">Usuarios</a></li><?php } ?>
             <li <?php if($menu == "cuenta"){ echo 'class="active"';} ?>><a href="?menu=cuenta">Mi Cuenta</a></li>
             <li><a href="../../connections/salir.php">Cerrar Sesión</a></li>

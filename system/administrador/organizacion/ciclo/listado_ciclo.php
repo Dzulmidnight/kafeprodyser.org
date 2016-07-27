@@ -54,17 +54,17 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form2")) {
 }
 
 mysql_select_db($database_organizacion, $organizacion);
-$query_ciclo = "SELECT * FROM ciclo WHERE idorganizacion = $idorganizacion ORDER BY ciclo ASC";
+$query_ciclo = "SELECT * FROM ciclo ORDER BY ciclo ASC";
 $ciclo = mysql_query($query_ciclo, $organizacion) or die(mysql_error());
-//$row_ciclo = mysql_fetch_assoc($ciclo);
+$row_ciclo = mysql_fetch_assoc($ciclo);
 $totalRows_ciclo = mysql_num_rows($ciclo);
 ?>
 
 <body>
     <div class="col-lg-12">
       <div class="row">
-        <a class="btn <?php if(!isset($_GET['add_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=ciclo">Listado Ciclos</a>
-        <a class="btn <?php if(isset($_GET['add_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=ciclo&add_ciclo">Agregar Ciclo</a>        
+        <a class="btn <?php if(isset($_GET['listado_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=organizacion&listado_ciclo">Listado Ciclos</a>
+        <a class="btn <?php if(isset($_GET['add_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=organizacion&add_ciclo&id_org=1">Agregar Ciclo</a>        
       </div>
       <!--<form id="form1" name="form1" method="post" action="">
         <input class="btn btn-primary" type="submit" name="button" id="button" value="Agregar ciclo" />
@@ -72,11 +72,12 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
       </form>-->
     </div>
 
+
 <div class="col-lg-12">
   <div class="row">
     <div class="col-lg-12">
       <div class="row">
-      <h2>Listado de ciclos</h2>  
+        <h2>Listado de ciclos</h2>  
       </div>
       
     </div>
@@ -188,6 +189,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
           <table class="table table-bordered table-condensed" style="font-size:12px;">
              <tr>
                 <td>Id Ciclo</td>
+                <td>Organizacion</td>
                 <td>Ciclo</td>
                 <td>Fecha</td>
                 <td>Descripción</td>
@@ -200,6 +202,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
             <?php while($row_ciclo = mysql_fetch_assoc($ciclo)){ ?>
               <tr>
                 <td><a class="btn btn-sm btn-info" href="?menu=ciclo&recordID=<?php echo $row_ciclo['idciclo']; ?>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <?php echo $row_ciclo['idciclo']; ?></a></td>
+                <td><a class="btn btn-sm btn-info" href=""><?php echo $row_ciclo['idorganizacion']; ?></a></td>
                 <td><?php echo $row_ciclo['ciclo']; ?>&nbsp; </td>
                 <td><?php echo $row_ciclo['fecha']; ?>&nbsp; </td>
                 <td><?php echo $row_ciclo['descripcion']; ?>&nbsp; </td>

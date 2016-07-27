@@ -46,56 +46,72 @@
 
 					      	echo "<div class='col-xs-12'><p class='text-justify'>".$datos_nota['contenido_descripcion']."</p></div>";
 
+
+					      	$nota = "SELECT contenido_titulo, contenido_descripcion, descripcion_img FROM nota WHERE idnota = $datos_nota[idnota]";
+					      	$ejecutar = mysql_query($nota,$kafeprod_bio) or die(mysql_error());
+					      	$titulo_nota = mysql_fetch_assoc($ejecutar); 
+
 					      	$query = "SELECT * FROM nota_segmento WHERE idnota = $datos_nota[idnota]";
 					      	$row_nota_segmento = mysql_query($query,$kafeprod_bio) or die(mysql_error());
 
+					      /*$nota = sprintf("SELECT contenido_titulo,contenido_descripcion,descripcion_img  FROM nota WHERE idnota = %s",
+					        GetSQLValueString($datos_nota['idnota'],"int"));
+					      $ejecutar = mysql_query($nota,$kafeprod_bio) or die(mysql_error());
+					      $titulo_nota = mysql_fetch_assoc($ejecutar);
+
+					      $query_segmento = sprintf("SELECT * FROM nota_segmento WHERE idnota  = %s",
+					      GetSQLValueString($datos_nota['idnota'],"int"));
+
+					      $ejecutar = mysql_query($query_segmento,$kafeprod_bio) or die(mysql_error());*/
+
+
 					      	while($nota_segmento = mysql_fetch_assoc($row_nota_segmento)){
-					      		if($nota_segmento['tipo'] == 1){
-					      		?>
-									<div class="col-xs-6" >
-										<div class="row">
-											<img style="padding:10px;"class="img-responsive" src="<?php echo $nota_segmento['img']; ?>" alt="">	
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<div class="row">
-											<p class="text-justify"><?php echo $nota_segmento['texto2']; ?></p>	
-										</div>
-									</div>
-					      		<?php
-					      		}
-					      		if($nota_segmento['tipo'] == 2){
-					      		?>
-					      			<div class="col-xs-12 text-center">
-					      				<div class="row">
-					      					<img style="padding:10px;" class="img-responsive"  src="<?php echo $nota_segmento['img']; ?>" alt="">	
-					      				</div>
-					      			</div>
-					      		<?php
-					      		}
-					      		if($nota_segmento['tipo'] == 3){
-					      		?>
-					      			<div class="col-xs-12">
-					      				<div class="row">
-					      					<p class="text-justify"><?php echo $nota_segmento['texto1']; ?></p>	
-					      				</div>
-					      			</div>
-					      			<div class="col-xs-12">
-					      				<div class="row">
-					      					<p class="text-justify"><?php echo $nota_segmento['texto2']; ?></p>	
-					      				</div>
-					      			</div>    		
-					      		<?php
-					      		}
-					      		if($nota_segmento['tipo'] == 4){
-					      		?>
-					      			<div class="col-xs-12" >
-					      				<div class="row">
-					      					<p class="text-justify"><?php echo $nota_segmento['texto2']; ?></p>	
-					      				</div>
-					      			</div>
-						      	<?php
-					      		}
+					            if($nota_segmento['tipo'] == 1){
+					            ?>
+					          <div class="col-xs-6" >
+
+					              <img style="padding:10px;"class="img-responsive" src="<?php echo $nota_segmento['img']; ?>" alt="<?php echo $titulo_nota['descripcion_img']; ?>"> 
+					     
+					          </div>
+					          <div class="col-xs-6">
+					   
+					              <p class="estilo_noticia text-justify"><?php echo $nota_segmento['texto2']; ?></p> 
+					  
+					          </div>
+					            <?php
+					            }
+					            if($nota_segmento['tipo'] == 2){
+					            ?>
+					              <div class="col-xs-12" style="margin-top:10px;">
+					             
+					                  <img style="padding:10px; display:block;margin:0 auto 0 auto;" class="img-responsive"  src="<?php echo $nota_segmento['img']; ?>" alt=""> 
+					      
+					              </div>
+					            <?php
+					            }
+					            if($nota_segmento['tipo'] == 3){
+					            ?>
+					              <div class="col-xs-12">
+					           
+					                  <h4 class="subtitulo_noticia text-justify"><?php echo $nota_segmento['texto1']; ?></h4> 
+					          
+					              </div>
+					              <div class="col-xs-12">
+					       
+					                  <p class="estilo_noticia text-justify"><?php echo nl2br($nota_segmento['texto2']); ?></p> 
+					   
+					              </div>        
+					            <?php
+					            }
+					            if($nota_segmento['tipo'] == 4){
+					            ?>
+					              <div class="col-xs-12" >
+					            
+					                  <p class="estilo_noticia text-justify"><?php echo nl2br($nota_segmento['texto2']); ?></p> 
+					     
+					              </div>
+					            <?php
+					            }
 					      	}
 					       ?>	
 			      		</div>

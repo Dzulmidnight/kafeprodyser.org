@@ -12,7 +12,10 @@ switch ($menu) {
 	case 'articulo':
 		include("articulo/articulo.php");
 		break;
-	
+	case 'organizacion':
+		include("organizacion/index.php");
+		break;
+
 	default:
 
 		break;
