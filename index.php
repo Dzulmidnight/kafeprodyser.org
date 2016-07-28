@@ -435,22 +435,22 @@ aprox. 46:37</p>
 	                            <div class="col-md-4">
 	                                <div class="single_count">
 	                                    <i class="icon-toolbox"></i>
-	                                    <h3>300</h3>
-	                                    <p>Project Done</p>
+	                                    <h3>15</h3>
+	                                    <p>Organizaciones de Pequeños Productores</p>
 	                                </div>
 	                            </div>
 	                            <div class="col-md-4">
 	                                <div class="single_count">
 	                                    <i class="icon-clock"></i>
-	                                    <h3>1700+</h3>
-	                                    <p>Hours Worked</p>
+	                                    <h3>3,401</h3>
+	                                    <p>Productores Orgánicos</p>
 	                                </div>                            
 	                            </div>
 	                            <div class="col-md-4">
 	                                <div class="single_count">
 	                                    <i class="icon-trophy"></i>
-	                                    <h3>37</h3>
-	                                    <p>Awards Won</p>
+	                                    <h3>8,606</h3>
+	                                    <p>Hectáreas</p>
 	                                </div>                            
 	                            </div>
 	                        </div>
