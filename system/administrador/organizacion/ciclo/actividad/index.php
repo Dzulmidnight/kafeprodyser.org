@@ -3,7 +3,7 @@ if (isset($_GET['recordID'])) {
   $_GET['idciclo'] = $_GET['recordID'];
 }
 ?>
-<?php require_once('../../Connections/organizacion.php'); ?>
+
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -44,7 +44,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_actividad")) {
 
   if(!empty($_FILES['fotografia']['name'])){
-    $ruta_img = "img/actividad/";
+    $ruta_img = "../img/img_actividad/";
     $ruta_img = $ruta_img . basename( $_FILES['fotografia']['name']); 
     if(move_uploaded_file($_FILES['fotografia']['tmp_name'], $ruta_img)){ 
       //echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
@@ -64,17 +64,16 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_actividad")) {
                        GetSQLValueString($_POST['beneficio_biodiversidad'], "text"),
                        GetSQLValueString($ruta_img, "text"));
 
-  mysql_select_db($database_organizacion, $organizacion);
-  $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());
+
+  $Result1 = mysql_query($insertSQL, $kafeprod_bio) or die(mysql_error());
 }
 
 $colname_actividad_list = "-1";
 if (isset($_GET['idciclo'])) {
   $colname_actividad_list = $_GET['idciclo'];
 }
-mysql_select_db($database_organizacion, $organizacion);
 $query_actividad_list = sprintf("SELECT * FROM actividad WHERE idciclo = %s ORDER BY fecha_inicio ASC", GetSQLValueString($colname_actividad_list, "int"));
-$actividad_list = mysql_query($query_actividad_list, $organizacion) or die(mysql_error());
+$actividad_list = mysql_query($query_actividad_list, $kafeprod_bio) or die(mysql_error());
 
 
 

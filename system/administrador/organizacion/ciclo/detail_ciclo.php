@@ -1,4 +1,4 @@
-<?php require_once('../../Connections/organizacion.php'); ?><?php
+<?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -47,8 +47,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form2")) {
                        GetSQLValueString($_POST['mujeres'], "int"),
                        GetSQLValueString($_POST['idciclo'], "int"));
 
-  mysql_select_db($database_organizacion, $organizacion);
-  $Result1 = mysql_query($updateSQL, $organizacion) or die(mysql_error());
+  $Result1 = mysql_query($updateSQL, $kafeprod_bio) or die(mysql_error());
   $mensaje = "Ciclo Actualizado Correctamente";
 }
 
@@ -56,46 +55,20 @@ $colname_DetailRS1 = "-1";
 if (isset($_GET['recordID'])) {
   $colname_DetailRS1 = $_GET['recordID'];
 }
-mysql_select_db($database_organizacion, $organizacion);
 $query_DetailRS1 = sprintf("SELECT * FROM ciclo WHERE idciclo = %s ORDER BY ciclo ASC", GetSQLValueString($colname_DetailRS1, "int"));
-$DetailRS1 = mysql_query($query_DetailRS1, $organizacion) or die(mysql_error());
+$DetailRS1 = mysql_query($query_DetailRS1, $kafeprod_bio) or die(mysql_error());
 $row_DetailRS1 = mysql_fetch_assoc($DetailRS1);
 $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
 ?>
 
 <div class="col-lg-12">
-  <a class="btn <?php if(isset($_GET['ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=ciclo&recordID=<?php echo $_GET['recordID']; ?>&ciclo">Ciclo</a>
-  <a class="btn <?php if(isset($_GET['padron'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=ciclo&recordID=<?php echo $_GET['recordID']; ?>&padron">Padron</a>
-  <a class="btn <?php if(isset($_GET['actividades'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=ciclo&recordID=<?php echo $_GET['recordID']; ?>&actividades">Actividades</a>
-  <a class="btn <?php if(isset($_GET['fotografias'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=ciclo&recordID=<?php echo $_GET['recordID']; ?>&fotografias">Fotografías</a>
+  <a class="btn <?php if(isset($_GET['ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=organizacion&listado_ciclo&recordID=<?php echo $_GET['recordID']; ?>&ciclo">Ciclo</a>
+  <a class="btn <?php if(isset($_GET['padron'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=organizacion&listado_ciclo&recordID=<?php echo $_GET['recordID']; ?>&padron">Padron</a>
+  <a class="btn <?php if(isset($_GET['actividades'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=organizacion&listado_ciclo&recordID=<?php echo $_GET['recordID']; ?>&actividades">Actividades</a>
+  <a class="btn <?php if(isset($_GET['fotografias'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default'; } ?>" href="?menu=organizacion&listado_ciclo&recordID=<?php echo $_GET['recordID']; ?>&fotografias">Fotografías</a>
   <hr>
 </div>
-<!--<ul>
-  <li>
-    <div>
-      <form id="form1" name="form1" method="post" action="?recordID=<? echo $_GET['recordID'];?>&padron=true">
-        <input type="submit" name="button" id="button" value="Padron" />
-        <input name="add_ciclo" type="hidden" value="1" />
-      </form>
-    </div>
-  </li>
-  <li>
-    <div>
-      <form id="form1" name="form1" method="post" action="?recordID=<? echo $_GET['recordID'];?>&actividad=true">
-        <input type="submit" name="button" id="button" value="Actividades" />
-        <input name="add_ciclo" type="hidden" value="1" />
-      </form>
-    </div>
-  </li>
-  <li>
-    <div>
-      <form id="form1" name="form1" method="post" action="?recordID=<? echo $_GET['recordID'];?>&fotografia=true">
-        <input type="submit" name="button" id="button" value="Fotografias" />
-        <input name="add_ciclo" type="hidden" value="1" />
-      </form>
-    </div>
-  </li>
-</ul>-->
+
     <?php 
     if(isset($mensaje)){
     ?>
@@ -157,7 +130,7 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
 
     <div class="col-lg-9" style="padding-right:0px;">
     <?php 
-      include("selector.php");
+      include("selector_ciclo.php");
     ?>
     </div>    
   </div>

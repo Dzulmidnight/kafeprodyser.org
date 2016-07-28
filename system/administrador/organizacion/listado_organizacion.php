@@ -26,8 +26,8 @@
 					?>
 						<tr>
 							<td>
-								<a class="<?php if($numero_ciclos == 0){ echo 'btn btn-sm btn-default disabled'; }else{ echo 'btn btn-sm btn-info'; } ?>" href="">
-									Consultar <?php echo $numero_ciclos; ?> <!--<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>-->
+								<a class="<?php if($numero_ciclos == 0){ echo 'btn btn-sm btn-default disabled'; }else{ echo 'btn btn-sm btn-info'; } ?>" href="?menu=organizacion&listado_ciclo&id_org=<?php echo $row_organizacion['idorganizacion']; ?>">
+									<?php echo $numero_ciclos; ?> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 								</a>
 								<a class="btn btn-sm btn-success" href="?menu=organizacion&add_ciclo&id_org=<?php echo $row_organizacion['idorganizacion']; ?>">Nuevo</a>
 							</td>
