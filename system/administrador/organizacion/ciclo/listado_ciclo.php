@@ -1,4 +1,3 @@
-<?php require_once('../../Connections/organizacion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -48,15 +47,20 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form2")) {
                        GetSQLValueString($_POST['hombres'], "int"),
                        GetSQLValueString($_POST['mujeres'], "int"));
 
-  mysql_select_db($database_organizacion, $organizacion);
-  $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());
+  //mysql_select_db($database_organizacion, $kafeprod_bio);
+  $Result1 = mysql_query($insertSQL, $kafeprod_bio) or die(mysql_error());
   $mensaje = "Ciclo Agregado Correctamente";
 }
 
-mysql_select_db($database_organizacion, $organizacion);
-$query_ciclo = "SELECT * FROM ciclo ORDER BY ciclo ASC";
-$ciclo = mysql_query($query_ciclo, $organizacion) or die(mysql_error());
-$row_ciclo = mysql_fetch_assoc($ciclo);
+//mysql_select_db($database_organizacion, $kafeprod_bio);
+if(isset($_GET['id_org']) && $_GET['id_org'] != 0){
+  $query_ciclo = "SELECT * FROM ciclo WHERE idorganizacion = $_GET[id_org] ORDER BY ciclo ASC";
+}else{
+  $query_ciclo = "SELECT * FROM ciclo ORDER BY ciclo ASC";
+}
+
+$ciclo = mysql_query($query_ciclo, $kafeprod_bio) or die(mysql_error());
+//$row_ciclo = mysql_fetch_assoc($ciclo);
 $totalRows_ciclo = mysql_num_rows($ciclo);
 ?>
 
@@ -64,7 +68,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
     <div class="col-lg-12">
       <div class="row">
         <a class="btn <?php if(isset($_GET['listado_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=organizacion&listado_ciclo">Listado Ciclos</a>
-        <a class="btn <?php if(isset($_GET['add_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=organizacion&add_ciclo&id_org=1">Agregar Ciclo</a>        
+        <a class="btn <?php if(isset($_GET['add_ciclo'])){ echo 'btn btn-primary';}else{ echo 'btn btn-default';} ?>" href="?menu=organizacion&add_ciclo">Agregar Ciclo</a>        
       </div>
       <!--<form id="form1" name="form1" method="post" action="">
         <input class="btn btn-primary" type="submit" name="button" id="button" value="Agregar ciclo" />
@@ -72,7 +76,20 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
       </form>-->
     </div>
 
-
+<div class="col-lg-12">
+  <select class="">
+    <option>...</option>
+    <?php 
+    $query = "SELECT * FROM organizacion";
+    $row_organizacion = mysql_query($query,$kafeprod_bio) or die(mysql_error());
+    while($datos_organizacion = mysql_fetch_assoc($row_organizacion)){
+    ?>
+      <option value="<?php echo $datos_organizacion['idorganizacion']; ?>"><?php echo $datos_organizacion['organizacion']; ?></option>
+    <?php
+    }
+     ?>
+  </select>
+</div>
 <div class="col-lg-12">
   <div class="row">
     <div class="col-lg-12">
@@ -105,68 +122,36 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    Ciclo:
-                  </td>
-                  <td>
-                    <input class="form-control" type="text" name="ciclo" value="">
-                  </td>
+                  <td>Ciclo:</td>
+                  <td><input class="form-control" type="text" name="ciclo" value=""></td>
                 </tr>
                 <tr>
-                  <td>
-                    Fecha:
-                  </td>
-                  <td>
-                    <input class="form-control" type="date" name="fecha" value="">
-                  </td>
+                  <td>Fecha:</td>
+                  <td><input class="form-control" type="date" name="fecha" value=""></td>
                 </tr>
                 <tr>
-                  <td>
-                    Descripción:
-                  </td>
-                  <td>
-                    <textarea class="form-control" name="descripcion" ></textarea>
-                  </td>
+                  <td>Descripción:</td>
+                  <td><textarea class="form-control" name="descripcion" ></textarea></td>
                 </tr>
                 <tr>
-                  <td>
-                    Producción Volumen:
-                  </td>
-                  <td>
-                    <input class="form-control" type="text" name="produccion_volumen" value="">
-                  </td>
+                  <td>Producción Volumen:</td>
+                  <td><input class="form-control" type="text" name="produccion_volumen" value=""></td>
                 </tr>
                 <tr>
-                  <td>
-                    Producción Superficie:
-                  </td>
-                  <td>
-                    <input class="form-control" type="text" name="produccion_superficie" value="">
-                  </td>
+                  <td>Producción Superficie:</td>
+                  <td><input class="form-control" type="text" name="produccion_superficie" value=""></td>
                 </tr>
                 <tr>
-                  <td>
-                    Número Productores:
-                  </td>
-                  <td>
-                    <input class="form-control" type="number" name="numero_productores" value="">
-                  </td>
+                  <td>Número Productores:</td>
+                  <td><input class="form-control" type="number" name="numero_productores" value=""></td>
                 </tr>
                 <tr>
-                  <td>
-                    Hombre:
-                  </td>
-                  <td>
-                    <input class="form-control" type="number" name="hombres" value="">
-                  </td>
+                  <td>Hombre:</td>
+                  <td><input class="form-control" type="number" name="hombres" value=""></td>
                 </tr>
                 <tr>
-                  <td>
-                    Mujeres:
-                  </td>
-                  <td>
-                    <input class="form-control" type="number" name="mujeres" value="">
-                  </td>
+                  <td>Mujeres:</td>
+                  <td><input class="form-control" type="number" name="mujeres" value=""></td>
                 </tr>
                 <tr style="border:hidden;border-top:solid">
                   <td colspan="2"><input class="btn btn-success" type="submit" value="Agregar Ciclo"></td>
@@ -188,7 +173,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
         <div class="row">
           <table class="table table-bordered table-condensed" style="font-size:12px;">
              <tr>
-                <td>Id Ciclo</td>
+                <td>Id<br>Ciclo</td>
                 <td>Organizacion</td>
                 <td>Ciclo</td>
                 <td>Fecha</td>

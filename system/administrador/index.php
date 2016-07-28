@@ -119,7 +119,7 @@ $(function () {
       	<!------------------------ TERMINA SECCIÓN MENÚ OPCIONES ------------------------------>
 
       	<!------------------------ INICIA SECCIÓN MENÚ SISTEMA ------------------------------>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div style="padding:10px;" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <?php 
             include("selector.php");
            ?>

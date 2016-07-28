@@ -44,7 +44,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_padron")) {
 
   if(!empty($_FILES['url']['name'])){
-    $ruta_img = "img/padron/";
+    $ruta_img = "../img/img_padron/";
     $ruta_img = $ruta_img . basename( $_FILES['url']['name']); 
     if(move_uploaded_file($_FILES['url']['tmp_name'], $ruta_img)){ 
       //echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";

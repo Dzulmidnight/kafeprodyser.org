@@ -39,11 +39,12 @@ if(isset($_POST['update_organizacion']) && $_POST['update_organizacion'] == 1){
                        GetSQLValueString($_POST['idorganizacion'], "int"));
 
 
-  $Result1 = mysql_query($updateSQL, $organizacion) or die(mysql_error());
+  $Result1 = mysql_query($updateSQL, $kafeprod_bio) or die(mysql_error());
   $mensaje = "Datos Actualizados Correctamente";
 }
+$idorganizacion = $_GET['detail_organizacion'];
 $query_detail = sprintf("SELECT * FROM organizacion WHERE idorganizacion = %s", GetSQLValueString($idorganizacion, "int"));
-$detail_organizacion = mysql_query($query_detail, $organizacion) or die(mysql_error());
+$detail_organizacion = mysql_query($query_detail, $kafeprod_bio) or die(mysql_error());
 $row_organizacion = mysql_fetch_assoc($detail_organizacion);
 $totalRows_detail_organizacion = mysql_num_rows($detail_organizacion);
 

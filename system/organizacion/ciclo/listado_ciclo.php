@@ -187,7 +187,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
         <div class="row">
           <table class="table table-bordered table-condensed" style="font-size:12px;">
              <tr>
-                <td>Id Ciclo</td>
+                <td>Id<br>Ciclo</td>
                 <td>Ciclo</td>
                 <td>Fecha</td>
                 <td>Descripción</td>

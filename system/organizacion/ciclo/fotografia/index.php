@@ -44,7 +44,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_fotografia")) {
 
   if(!empty($_FILES['url']['name'])){
-    $ruta_img = "img/actividad/";
+    $ruta_img = "../img/img_fotografia/";
     $ruta_img = $ruta_img . basename( $_FILES['url']['name']); 
     if(move_uploaded_file($_FILES['url']['tmp_name'], $ruta_img)){ 
       //echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
@@ -85,7 +85,7 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
       </div>
       <div class="col-md-12">
         <form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2" enctype="multipart/form-data">
-          <table class="table table-bordered">
+          <table class="table table-bordered table-condensed" style="font-size:12px;">
             <tr valign="baseline">
               <td nowrap="nowrap" align="right">Url:</td>
               <td><input type="file" name="url" value="" /></td>
@@ -130,8 +130,8 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
         <?php 
         while($row_fotografia_list = mysql_fetch_assoc($fotografia_list)){
         ?>
-          <tr >
-            <td rowspan="4" style="width:120px;"><img width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></td>
+          <tr>
+            <td rowspan="4" style="width:120px;border:hidden;border-right:solid;"><a href="<?php echo $row_fotografia_list['url']; ?>"><img class="img-thumbnail" width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></a></td>
           </tr>
           <tr>
             <td><?php echo $row_fotografia_list['fecha']; ?></td>

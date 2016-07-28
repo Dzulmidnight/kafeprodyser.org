@@ -44,7 +44,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_actividad")) {
 
   if(!empty($_FILES['fotografia']['name'])){
-    $ruta_img = "img/actividad/";
+    $ruta_img = "../img/img_actividad/";
     $ruta_img = $ruta_img . basename( $_FILES['fotografia']['name']); 
     if(move_uploaded_file($_FILES['fotografia']['tmp_name'], $ruta_img)){ 
       //echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
