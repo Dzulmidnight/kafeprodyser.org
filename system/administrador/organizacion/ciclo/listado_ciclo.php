@@ -59,9 +59,11 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form2")) {
 
 //mysql_select_db($database_organizacion, $kafeprod_bio);
 if(isset($_GET['id_org']) && $_GET['id_org'] != ''){
-  $query_ciclo = "SELECT * FROM ciclo WHERE idorganizacion = $_GET[id_org] ORDER BY ciclo ASC";
+  $query_ciclo = "SELECT ciclo.*, ciclo.descripcion AS 'descripcion_ciclo', organizacion.* FROM ciclo LEFT JOIN organizacion ON ciclo.idorganizacion = organizacion.idorganizacion WHERE organizacion.idorganizacion = $_GET[id_org]";
+  //$query_ciclo = "SELECT * FROM ciclo WHERE idorganizacion = $_GET[id_org] ORDER BY ciclo ASC";
 }else{
-  $query_ciclo = "SELECT * FROM ciclo ORDER BY ciclo ASC";
+  $query_ciclo = "SELECT ciclo.*, ciclo.descripcion AS 'descripcion_ciclo', organizacion.* FROM ciclo LEFT JOIN organizacion ON ciclo.idorganizacion = organizacion.idorganizacion";
+  //$query_ciclo = "SELECT * FROM ciclo ORDER BY ciclo ASC";
 }
 
 $ciclo = mysql_query($query_ciclo, $kafeprod_bio) or die(mysql_error());
@@ -208,7 +210,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
         <div class="row">
           <table class="table table-bordered table-condensed" style="font-size:12px;">
              <tr>
-                <td>Id<br>Ciclo</td>
+                <!--<td>Id<br>Ciclo</td>-->
                 <td>Organizacion</td>
                 <td>Ciclo</td>
                 <td>Fecha</td>
@@ -221,16 +223,19 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
             </tr>
             <?php while($row_ciclo = mysql_fetch_assoc($ciclo)){ ?>
               <tr>
-                <td><a class="btn btn-sm btn-info" href="?menu=organizacion&listado_ciclo&recordID=<?php echo $row_ciclo['idciclo']; ?>"><?php echo $row_ciclo['idciclo']; ?> Consultar</a></td>
-                <td><a class="btn btn-sm btn-info" href="?menu=organizacion&detail_organizacion=<?php echo $row_ciclo['idorganizacion']; ?>"><?php echo $row_ciclo['idorganizacion']; ?></a></td>
-                <td><?php echo $row_ciclo['ciclo']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['fecha']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['descripcion']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['produccion_volumen']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['produccion_superficie']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['numero_productores']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['hombres']; ?>&nbsp; </td>
-                <td><?php echo $row_ciclo['mujeres']; ?>&nbsp; </td>
+                <!--<td><a class="btn btn-sm btn-info" href="?menu=organizacion&listado_ciclo&recordID=<?php echo $row_ciclo['idciclo']; ?>"><?php echo $row_ciclo['idciclo']; ?> Consultar</a></td>-->
+                <td>
+                  <a class="" href="?menu=organizacion&detail_organizacion=<?php echo $row_ciclo['idorganizacion']; ?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> | <?php echo $row_ciclo['organizacion']; ?></a>
+                  
+                </td>
+                <td><a href="?menu=organizacion&listado_ciclo&recordID=<?php echo $row_ciclo['idciclo']; ?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> | <?php echo $row_ciclo['ciclo']; ?></a></td>
+                <td><?php echo $row_ciclo['fecha']; ?></td>
+                <td><?php echo $row_ciclo['descripcion_ciclo']; ?></td>
+                <td><?php echo $row_ciclo['produccion_volumen']; ?></td>
+                <td><?php echo $row_ciclo['produccion_superficie']; ?></td>
+                <td><?php echo $row_ciclo['numero_productores']; ?></td>
+                <td><?php echo $row_ciclo['hombres']; ?></td>
+                <td><?php echo $row_ciclo['mujeres']; ?></td>
               </tr>
             <?php } 
 

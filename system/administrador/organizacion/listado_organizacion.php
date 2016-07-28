@@ -9,7 +9,7 @@
 				<thead>
 					<tr>
 						<th>Ciclos</th>
-						<th>Id</th>
+						<!--<th>Id</th>-->
 						<th>Organización</th>
 						<th>Username</th>
 						<th>Password</th>
@@ -27,12 +27,12 @@
 						<tr>
 							<td>
 								<a class="<?php if($numero_ciclos == 0){ echo 'btn btn-sm btn-default disabled'; }else{ echo 'btn btn-sm btn-info'; } ?>" href="?menu=organizacion&listado_ciclo&id_org=<?php echo $row_organizacion['idorganizacion']; ?>">
-									<?php echo $numero_ciclos; ?> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="badge"><?php echo $numero_ciclos; ?></span>
 								</a>
 								<a class="btn btn-sm btn-success" href="?menu=organizacion&add_ciclo&id_org=<?php echo $row_organizacion['idorganizacion']; ?>">Nuevo</a>
 							</td>
-							<td><?php echo $row_organizacion['idorganizacion']; ?></td>
-							<td><a href="?menu=organizacion&detail_organizacion=<?php echo $row_organizacion['idorganizacion']; ?>"><?php echo $row_organizacion['organizacion']; ?></a></td>
+							<!--<td><?php echo $row_organizacion['idorganizacion']; ?></td>-->
+							<td>ID: <?php echo $row_organizacion['idorganizacion']; ?> <a href="?menu=organizacion&detail_organizacion=<?php echo $row_organizacion['idorganizacion']; ?>"><?php echo $row_organizacion['organizacion']; ?></a></td>
 							<td><?php echo $row_organizacion['username']; ?></td>
 							<td><?php echo $row_organizacion['password']; ?></td>
 							<td><?php echo $row_organizacion['ubicacion']; ?></td>

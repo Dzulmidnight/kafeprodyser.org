@@ -95,8 +95,12 @@ $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
             <td><input class="form-control" type="text" name="fecha" value="<?php echo htmlentities($row_DetailRS1['fecha'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
           </tr>
           <tr valign="baseline">
-            <td nowrap="nowrap" align="right">Descripcion:</td>
-            <td><input class="form-control" type="text" name="descripcion" value="<?php echo htmlentities($row_DetailRS1['descripcion'], ENT_COMPAT, 'UTF-8'); ?>" size="32" /></td>
+            <td colspan="2" nowrap="nowrap" align="right">
+              <p class="text-left">Descripción:</p>
+           
+              <textarea class="form-control" name="descripcion"><?php echo htmlentities($row_DetailRS1['descripcion'], ENT_COMPAT, 'UTF-8'); ?></textarea>
+              <!--<input class="form-control" type="text" name="descripcion" value="<?php echo htmlentities($row_DetailRS1['descripcion'], ENT_COMPAT, 'UTF-8'); ?>" size="32" />-->
+            </td>
           </tr>
           <tr valign="baseline">
             <td nowrap="nowrap" align="right">Producción Volumen:</td>

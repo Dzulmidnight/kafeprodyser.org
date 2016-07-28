@@ -131,7 +131,8 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
         while($row_fotografia_list = mysql_fetch_assoc($fotografia_list)){
         ?>
           <tr>
-            <td rowspan="4" style="width:120px;border:hidden;border-right:solid;"><a href="<?php echo $row_fotografia_list['url']; ?>" target="_new"><img class="img-thumbnail" width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></a></td>
+            <td rowspan="4" style="width:120px;border:hidden;border-right:solid;"><a href="<?php echo $row_fotografia_list['url']; ?>" target="_new
+              "><img class="img-thumbnail" width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></a></td>
           </tr>
           <tr>
             <td><?php echo $row_fotografia_list['fecha']; ?></td>
