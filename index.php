@@ -169,8 +169,8 @@ if (!isset($_POST['email_orden'])) {
 
 <?php } else{
 	?><label for="nombre"><h5>ORDEN ENVIADA</h5></label> <?						   
-$destino1="isc.jesusmartinez@gmail.com,Amirv90@gmail.com";
-$remitente = "Orden de compra Kafeprodyser<donotreply@kafeprodyser.org>";
+$destino1="contacto@inforganic.net,kafeprodyser@outlook.com";
+$remitente = "kafeprodyser.org<kafeprodyser@outlook.com>";
 $asunto= "Orden de compra";
 $mensaje='
 <table width="99%" border="0" align="center">
@@ -413,12 +413,12 @@ aprox. 46:37</p>
             </div>
             <div class="owl-carousel">
                 <div class="single_testimonial text-center wow fadeInUp animated">
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores<br/> eos qui ratione voluptatem sequi nesciunt.</p>
-                    <h4>-JOHN DOE</h4>
+                    <p>Pequeños productores organizados y comprometidos con la biodiversidad.</p>
+                    <h4>www.Kafeprodyser.org</h4>
                 </div>
                 <div class="single_testimonial text-center">
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius<br/> modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                    <h4>-JOHN SMITH</h4>
+                    <p>Café orgánico de alta calidad</p>
+                    <h4>www.Kafeprodyser.org</h4>
                 </div>
             </div>            
         </div>
@@ -434,23 +434,20 @@ aprox. 46:37</p>
 	                        <div class="row">
 	                            <div class="col-md-4">
 	                                <div class="single_count">
-	                                    <i class="icon-toolbox"></i>
 	                                    <h3>15</h3>
 	                                    <p>Organizaciones de Pequeños Productores</p>
 	                                </div>
 	                            </div>
 	                            <div class="col-md-4">
 	                                <div class="single_count">
-	                                    <i class="icon-clock"></i>
 	                                    <h3>3,401</h3>
-	                                    <p>Productores Orgánicos</p>
+	                                    <p>Productores Orgánicos<br>&nbsp;</p>
 	                                </div>                            
 	                            </div>
 	                            <div class="col-md-4">
 	                                <div class="single_count">
-	                                    <i class="icon-trophy"></i>
 	                                    <h3>8,606</h3>
-	                                    <p>Hectáreas</p>
+	                                    <p>Hectáreas<br>&nbsp;</p>
 	                                </div>                            
 	                            </div>
 	                        </div>
@@ -537,9 +534,9 @@ aprox. 46:37</p>
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="contact_title  wow fadeInUp animated">
-                        <h1>get in touch</h1>
+                        <h1>mantente en contacto</h1>
                         <img src="images/shape.png" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<br/> aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
+                        <p>Si quieres saber más sobre nuestro trabajo en apoyo y conservación de la biodiversidad, producción de café orgánico o estás interesado en comprar nuestro producto, dejanos un mensaje utilizando el formulario a continuación:</p>
                     </div>
                 </div>
             </div>
@@ -548,16 +545,16 @@ aprox. 46:37</p>
             <div class="row">
                 <div class="col-md-3  wow fadeInLeft animated">
                     <div class="single_contact_info">
-                        <h2>Call Me</h2>
-                        <p>+88 00 123 456 01</p>
+                        <h2>Llama</h2>
+                        <p>+52 1 965 104 3252</p>
                     </div>
                     <div class="single_contact_info">
-                        <h2>Email Me</h2>
-                        <p>Hello@abdullahnoman.com</p>
+                        <h2>Escribe</h2>
+                        <p>kafeprodyser@outlook.com</p>
                     </div>
                     <div class="single_contact_info">
-                        <h2>Address</h2>
-                        <p>216 Street Address, Barisal, BD</p>
+                        <h2>Visita</h2>
+                        <p>15 Oriente Sur 370, Col. Santa Cruz, Tuxtla Gutiérrez, Chiapas. C.P. 29073D</p>
                     </div>
                 </div>
                 <div class="col-md-9  wow fadeInRight animated">
@@ -576,11 +573,11 @@ if (!isset($_POST['email'])) {
                             </div>
                             <div class="col-md-6">
                                 <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Mensaje..."></textarea>
-                        <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button> 
+                        <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">Enviar mensaje</button> 
                        <?php } else{
 						   
-$destino1="isc.jesusmartinez@gmail.com,Amirv90@gmail.com";
-$remitente = "Contacto Kafeprodyser<donotreply@kafeprodyser.org>";
+$destino1="contacto@inforganic.net,kafeprodyser@outlook.com";
+$remitente = "kafeprodyser.org<kafeprodyser@outlook.com>";
 $asunto= $_POST['subject'];
 $mensaje='
 <table width="99%" border="0" align="center">
@@ -645,7 +642,7 @@ mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="work-with   wow fadeInUp animated">
-                        <h3>looking forward to hearing from you!</h3>
+                        <h3>Gracias por visitar kafeprodyser.org!</h3>
                     </div>
                 </div>
             </div>
@@ -671,11 +668,7 @@ mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio
                     <div class="social">
                         <h2>Follow Me on Here</h2>
                         <ul class="icon_list">
-                            <li><a href="http://www.facebook.com/abdullah.noman99"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="http://www.twitter.com/absconderm"target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="http://www.dribbble.com/abdullahnoman"target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="http://www.facebook.com/kafeprodyser"target="_blank"><i class="fa fa-facebook"></i></a></li>
                         </ul>
                     </div>
                 </div>
