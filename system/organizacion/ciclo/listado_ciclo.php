@@ -54,9 +54,9 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form2")) {
 }
 
 mysql_select_db($database_organizacion, $organizacion);
-$query_ciclo = "SELECT * FROM ciclo ORDER BY ciclo ASC";
+$query_ciclo = "SELECT * FROM ciclo WHERE idorganizacion = $idorganizacion ORDER BY ciclo ASC";
 $ciclo = mysql_query($query_ciclo, $organizacion) or die(mysql_error());
-$row_ciclo = mysql_fetch_assoc($ciclo);
+//$row_ciclo = mysql_fetch_assoc($ciclo);
 $totalRows_ciclo = mysql_num_rows($ciclo);
 ?>
 
@@ -187,7 +187,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
         <div class="row">
           <table class="table table-bordered table-condensed" style="font-size:12px;">
              <tr>
-                <td>Id Ciclo</td>
+                <td>Id<br>Ciclo</td>
                 <td>Ciclo</td>
                 <td>Fecha</td>
                 <td>Descripción</td>

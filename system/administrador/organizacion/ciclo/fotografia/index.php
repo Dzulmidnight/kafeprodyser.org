@@ -3,7 +3,7 @@ if (isset($_GET['recordID'])) {
   $_GET['idciclo'] = $_GET['recordID'];
 }
 ?>
-<?php require_once('../../Connections/organizacion.php'); ?>
+
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -44,7 +44,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_fotografia")) {
 
   if(!empty($_FILES['url']['name'])){
-    $ruta_img = "../img/img_fotografia/";
+    $ruta_img = "../img/img_actividad/";
     $ruta_img = $ruta_img . basename( $_FILES['url']['name']); 
     if(move_uploaded_file($_FILES['url']['tmp_name'], $ruta_img)){ 
       //echo "El archivo ". basename( $_FILES['img']['name']). " ha sido subido";
@@ -62,17 +62,16 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_fotografia")) {
                        GetSQLValueString($_POST['descripcion'], "text"),
                        GetSQLValueString($_POST['fecha'], "text"));
 
-  mysql_select_db($database_organizacion, $organizacion);
-  $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());
+
+  $Result1 = mysql_query($insertSQL, $kafeprod_bio) or die(mysql_error());
 }
 
 $colname_fotografia_list = "-1";
 if (isset($_GET['idciclo'])) {
   $colname_fotografia_list = $_GET['idciclo'];
 }
-mysql_select_db($database_organizacion, $organizacion);
 $query_fotografia_list = sprintf("SELECT * FROM fotografia WHERE idciclo = %s ORDER BY fecha ASC", GetSQLValueString($colname_fotografia_list, "int"));
-$fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mysql_error());
+$fotografia_list = mysql_query($query_fotografia_list, $kafeprod_bio) or die(mysql_error());
 
 
 
@@ -130,9 +129,8 @@ $fotografia_list = mysql_query($query_fotografia_list, $organizacion) or die(mys
         <?php 
         while($row_fotografia_list = mysql_fetch_assoc($fotografia_list)){
         ?>
-          <tr>
-            <td rowspan="4" style="width:120px;border:hidden;border-right:solid;"><a href="<?php echo $row_fotografia_list['url']; ?>" target="_new
-              "><img class="img-thumbnail" width="100px;" src="<?php echo $row_fotografia_list['url'];?>"></a></td>
+          <tr >
+            <td rowspan="4" style="width:120px;border:hidden;border-right:solid;"><a href="<?php echo $row_fotografia_list['url']; ?>" target="_new"><img width="100px;" class="img-thumbnail" src="<?php echo $row_fotografia_list['url'];?>"></a></td>
           </tr>
           <tr>
             <td><?php echo $row_fotografia_list['fecha']; ?></td>

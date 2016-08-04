@@ -17,7 +17,7 @@
 		$email = $_POST['email'];
 		$query = "UPDATE usuario SET clase = '$clase', username = '$username', password = '$password', nombre = '$nombre', email = '$email' WHERE idusuario = $idusuario";
 		$actualizar = mysql_query($query,$kafeprod_bio) or die(mysql_error());
-		$ok = true;
+		$mensaje = "Datos Actualizados Correctamente";
 
 	}
 
@@ -33,11 +33,11 @@
 	<div class="col-xs-12">
 		<form action="" method="POST">
 			<?php 
-			if(isset($ok) && $ok){
+			if(isset($mensaje) && $mensaje){
 			?>
 				<div class="alert alert-success alert-dismissible" role="alert">
   					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  					Datos Actualizados Corretamente
+  					<?php echo $mensaje ?>
 				</div>
 			<?php	
 			}

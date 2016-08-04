@@ -3,7 +3,6 @@ if (isset($_GET['recordID'])) {
   $idciclo = $_GET['recordID'];
 }
 ?>
-<?php require_once('../../Connections/organizacion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -62,17 +61,16 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "add_padron")) {
                        GetSQLValueString($_POST['fecha'], "text"),
                        GetSQLValueString($_POST['descripcion'], "text"));
 
-  mysql_select_db($database_organizacion, $organizacion);
-  $Result1 = mysql_query($insertSQL, $organizacion) or die(mysql_error());
+
+  $Result1 = mysql_query($insertSQL, $kafeprod_bio) or die(mysql_error());
 }
 
 $colname_padron_list = "-1";
 if (isset($idciclo)) {
   $colname_padron_list = $idciclo;
 }
-mysql_select_db($database_organizacion, $organizacion);
 $query_padron_list = sprintf("SELECT * FROM padron WHERE idciclo = %s", GetSQLValueString($colname_padron_list, "int"));
-$padron_list = mysql_query($query_padron_list, $organizacion) or die(mysql_error());
+$padron_list = mysql_query($query_padron_list, $kafeprod_bio) or die(mysql_error());
 
 ?>
 

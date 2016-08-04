@@ -107,7 +107,7 @@
 
  	<div class="col-md-6">
  		<h4 style="display:inline;">Listado Usuarios</h4> <?php if(isset($_GET['detalle'])){ echo '<a class="btn btn-primary btn-sm" href="?menu=usuarios"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Nuevo Usuario</a>';} ?>
- 		<table class="table" style="font-size:12px;">
+ 		<table class="table table-bordered" style="font-size:12px;">
  			<thead>
  				<tr>
  					<th>Clase</th>

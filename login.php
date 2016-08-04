@@ -115,7 +115,7 @@
               <form id="frm_administrador" action="connections/autentificar.php" method="POST" style="display:none">
 
                 <div class="col-md-12">
-                  <h3 class="text-center">Iniciar Sesión ADMIN</h3>
+                  <h3 class="text-center">Iniciar Sesión Administrador</h3>
                   <?php
                   if(isset($_GET['error']) && $_GET['error'] == "si"){
                     echo "<div class='col-md-12 text-center alert alert-danger'><p>Datos Incorrectos</p></div>";
@@ -140,7 +140,7 @@
               <form id="frm_organizacion" action="connections/autentificar.php" method="POST" style="display:none">
 
                 <div class="col-md-12">
-                  <h3 class="text-center">Iniciar Sesión ORG</h3>
+                  <h3 class="text-center">Iniciar Sesión Organización</h3>
                   <?php
                   if(isset($_GET['error']) && $_GET['error'] == "si"){
                     echo "<div class='col-md-12 text-center alert alert-danger'><p>Datos Incorrectos</p></div>";
