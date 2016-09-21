@@ -1,4 +1,4 @@
-<?php require_once('../../Connections/organizacion.php'); ?>
+<?php require_once('../../connections/organizacion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -168,7 +168,7 @@ $totalRows_ciclo = mysql_num_rows($ciclo);
                   </td>
                 </tr>
                 <tr style="border:hidden;border-top:solid">
-                  <td colspan="2"><input class="btn btn-success" type="submit" value="Agregar Ciclo"></td>
+                  <td colspan="2"><input class="btn btn-success" type="submit" value="Nuevo Ciclo"></td>
                 </tr>
               </tbody>
             </table>

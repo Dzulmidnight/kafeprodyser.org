@@ -1,0 +1,2 @@
+[04-Aug-2016 12:21:13 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/kafeprod/public_html/connections/kafeprod_bio.php on line 12
+[04-Aug-2016 12:21:13 America/Chicago] PHP Fatal error:  Access denied for user 'root'@'localhost' (using password: NO) in /home/kafeprod/public_html/connections/kafeprod_bio.php on line 12

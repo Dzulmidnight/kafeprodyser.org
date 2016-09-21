@@ -72,12 +72,12 @@
 	                <!-- Collect the nav links, forms, and other content for toggling -->
 	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                  <ul class="nav navbar-nav navbar-right">
-	                    <li><a href="#HOME">Inicio</a></li>
-	                    <li><a href="#">Tienda</a></li>
+	                    <li><a href="index.php">Inicio</a></li>
+	                    <li><a href="index.php?order=true">Tienda</a></li>
                       <li><a href="#SERVICE">Servicios</a></li>
 	                    <li><a href="#ABOUT">¿Quiénes Somos?</a></li>
 	                    <li><a href="#TESTIMONIAL">Organizaciones</a></li>
-	                    <li><a href="#WORK">Nuestro Trabajo</a></li>
+	                    <li><a href="nuestro_trabajo.php">Nuestro Trabajo</a></li>
 	                    <li><a href="#CONTACT">Contactanos</a></li>
                       <li><a href="login.php">Mi Cuenta</a></li>
 	                  </ul>
@@ -310,7 +310,7 @@ mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio
             <a name="order"></a>
             
             
-                <div class="col-md-3 text-center">
+                <div class="col-md-2 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="1s">
                         <i><img src="images/fruto.png" alt=""></i>
                         <h2 style="margin-top:80px;">Cereza</h2>
@@ -318,7 +318,7 @@ mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio
 245:57.5</p>
                     </div>
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-2 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="2s">
                         <i><img src="images/grano.png" alt=""></i>
                         <h2 style="margin-top:90px;">Tostado</h2>
@@ -326,24 +326,35 @@ mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio
 aprox. 46:37</p>
                     </div>
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-2 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="3s">
                         <i><img src="images/molido7.jpg" alt=""></i>
                         <h2>Molido</h2>
-                        <p>El rendimiento  de  tostado a  molido es prácticamente de 100 %</p>
+                        <p>El rendimiento  de  tostado a  molido es prácticamente de 100%</p>
                     </div>
                 </div>
                 
                 
                 
-                <div class="col-md-3 text-center">
+                <div class="col-md-2 text-center">
                     <div class="single_service wow fadeInUp" data-wow-delay="4s">
                         <i><a href="index.php?order=true"><img src="images/taza4.jpg" alt="" border="0"></a></i>
                       <h2>Black Coffee</h2>
                         <p>From Chiapas 100%<br>
-                        <a href="index.php?order=true">ORDER NOW!</a></p>
+                        <a href="index.php?order=true">ORDER NOW!</a>
+                        </p>
                     </div>
                 </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="single_service wow fadeInUp" data-wow-delay="5s">
+                        <i><a href="http://www.facebook.com/profile.php?id=100011481371856" target="_blank"><img src="images/facebook.jpg" alt=""></a></i>
+                        <h2>Facebook!</h2>
+                        <p>Visitanos en nuestras redes sociales</p>
+                    </div>
+                </div>
+                
+                
             </div>            
         </div>
     </section>
@@ -396,10 +407,10 @@ aprox. 46:37</p>
                     </div>
                 </div>
                 <div class="col-md-4  wow fadeInRight animated">
-                    <p class="about_us_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sed quia non numquam eius modi tempora.</p>
+                    <p class="about_us_p">Descripción de Kafeprodyser, historia, misión, visión</p>
                 </div>
                 <div class="col-md-4  wow fadeInRight animated">
-                    <p class="about_us_p">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <p class="about_us_p">Descripción de Kafeprodyser, historia, misión, visión</p>
                 </div>
             </div>
         </div>

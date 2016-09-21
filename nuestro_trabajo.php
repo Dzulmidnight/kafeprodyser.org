@@ -111,11 +111,11 @@ if (!function_exists("GetSQLValueString")) {
 	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                  <ul class="nav navbar-nav navbar-right">
 	                    <li><a href="index.php#HOME">Inicio</a></li>
-	                    <li><a href="index.php#">Tienda</a></li>
+	                    <li><a href="index.php?order=true">Tienda</a></li>
                       <li><a href="index.php#SERVICE">Servicios</a></li>
 	                    <li><a href="index.php#ABOUT">¿Quiénes Somos?</a></li>
 	                    <li><a href="index.php#TESTIMONIAL">Organizaciones</a></li>
-	                    <li class="active"><a href="index.php#WORK">Nuestro Trabajo</a></li>
+	                    <li class="active"><a href="nuestro_trabajo.php">Nuestro Trabajo</a></li>
 	                    <li><a href="index.php#CONTACT">Contactanos</a></li>
                       <li><a href="login.php">Mi Cuenta</a></li>
 	                  </ul>
@@ -451,9 +451,9 @@ if (!function_exists("GetSQLValueString")) {
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="contact_title  wow fadeInUp animated">
-                        <h1>get in touch</h1>
+                        <h1>mantente en contacto</h1>
                         <img src="images/shape.png" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<br/> aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
+                        <p>Si quieres saber más sobre nuestro trabajo en apoyo y conservación de la biodiversidad, producción de café orgánico o estás interesado en comprar nuestro producto, dejanos un mensaje utilizando el formulario a continuación:</p>
                     </div>
                 </div>
             </div>
@@ -462,31 +462,95 @@ if (!function_exists("GetSQLValueString")) {
             <div class="row">
                 <div class="col-md-3  wow fadeInLeft animated">
                     <div class="single_contact_info">
-                        <h2>Call Me</h2>
-                        <p>+88 00 123 456 01</p>
+                        <h2>Llama</h2>
+                        <p>+52 1 965 104 3252</p>
                     </div>
                     <div class="single_contact_info">
-                        <h2>Email Me</h2>
-                        <p>Hello@abdullahnoman.com</p>
+                        <h2>Escribe</h2>
+                        <p>kafeprodyser@outlook.com</p>
                     </div>
                     <div class="single_contact_info">
-                        <h2>Address</h2>
-                        <p>216 Street Address, Barisal, BD</p>
+                        <h2>Visita</h2>
+                        <p>15 Oriente Sur 370, Col. Santa Cruz, Tuxtla Gutiérrez, Chiapas. C.P. 29073D</p>
                     </div>
                 </div>
                 <div class="col-md-9  wow fadeInRight animated">
-                    <form class="contact-form" action="">
+                <iframe name="destino" width="1" height="1" ></iframe>
+             <?php
+if (!isset($_POST['email'])) {
+?>
+  <form class="contact-form" action="" method="post"  >
+                    
+                    
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">                                
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Nombre o empresa">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email de contacto">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">                                
                             </div>
                             <div class="col-md-6">
-                                <textarea class="form-control" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
-                                <button type="button" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button>                                
+                                <textarea class="form-control" name="message" id="message" rows="25" cols="10" placeholder="  Mensaje..."></textarea>
+                        <button type="submit" value="enviar" class="btn btn-default submit-btn form_submit">Enviar mensaje</button> 
+                       <?php } else{
+						   
+$destino1="contacto@inforganic.net,kafeprodyser@outlook.com";
+$remitente = "kafeprodyser.org<kafeprodyser@outlook.com>";
+$asunto= $_POST['subject'];
+$mensaje='
+<table width="99%" border="0" align="center">
+  <tr>
+    <td bgcolor="#E59866" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #FDFEFE; font-size: 18px; text-align: center;">Kafeprodyser, Notificación automatica</td>
+  </tr>
+  <tr>
+    <td height="200" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #D35400; font-weight: bold; text-align: center;">
+	Hola este es un correo enviado desde la sección de contacto de la pagina [www.kafeprodyser.org].<br>
+	
+	<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>
+      <table  border="0" align="center" >
+      <tr>
+        <td style="font-size: 18px">Formulario de contacto:</td>
+        <td align="center"></td>
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Nombre:</td>
+        <td align="center" bgcolor="#FDFEFE  " style="color: #17202A">'.$_POST['name'].'</td>
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Email:</td>
+        <td align="center" bgcolor="#FDFEFE  " style="color: #17202A">'.$_POST['email'].'</td>
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Asunto:</td>
+        <td bgcolor="#FDFEFE  " style="color: #17202A">'.$_POST['subject'].'</td>
+      </tr>
+      <tr>
+        <td bgcolor="#E59866" style="color: #FFF">Mensaje:</td>
+        <td bgcolor="#FDFEFE  " style="color: ##17202A">'.$_POST['message'].'</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+    </td>
+  </tr>
+  
+</table>
+';
+$encabezados = "From: $remitente\nReply-To: $remitente\nContent-Type: text/html; charset=iso-8859-1";
+mail($destino1, $asunto, $mensaje, $encabezados) or die ("Su mensaje no se envio.");	
+//FIN NOTIFICACION POR CORREO
+?>
+ 
+<?php
+}
+?>              
+                                     
+ 
+                          
                             </div>
                         </div>
+                       
                     </form>
                 </div>
             </div>
@@ -495,7 +559,7 @@ if (!function_exists("GetSQLValueString")) {
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="work-with   wow fadeInUp animated">
-                        <h3>looking forward to hearing from you!</h3>
+                        <h3>Gracias por visitar kafeprodyser.org!</h3>
                     </div>
                 </div>
             </div>

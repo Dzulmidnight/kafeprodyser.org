@@ -128,7 +128,7 @@ $padron_list = mysql_query($query_padron_list, $kafeprod_bio) or die(mysql_error
         while($row_padron_list = mysql_fetch_assoc($padron_list)){
         ?>
           <tr>
-            <td><a class="btn btn-sm btn-primary" href="<?php echo $row_padron_list['url']; ?>" target="_new"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+            <td><a class="btn btn-sm btn-primary" data-toggle="tooltip" title="Descargar Padrón" href="<?php echo $row_padron_list['url']; ?>" target="_new"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
             <td><?php echo $row_padron_list['fecha']; ?></td>
             <td><?php echo $row_padron_list['descripcion']; ?></td>
           </tr>

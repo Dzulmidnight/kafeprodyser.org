@@ -3,7 +3,7 @@ if (isset($_GET['recordID'])) {
   $idciclo = $_GET['recordID'];
 }
 ?>
-<?php require_once('../../Connections/organizacion.php'); ?>
+<?php require_once('../../connections/organizacion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 

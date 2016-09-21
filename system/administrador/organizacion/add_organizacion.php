@@ -52,7 +52,7 @@ if(isset($_POST['add_organizacion']) && $_POST['add_organizacion'] == 1){
 					<tr>
 						<td colspan="2">
 							<input type="hidden" name="add_organizacion" value="1">
-							<input type="submit" class="btn btn-success" value="Agregar Organización">
+							<input type="submit" class="btn btn-success" value="Guardar Organización">
 						</td>
 					</tr>
 				</table>

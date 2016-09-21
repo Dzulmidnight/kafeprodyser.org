@@ -1,4 +1,4 @@
-<?php require_once('../../Connections/organizacion.php'); 
+<?php require_once('../../connections/organizacion.php'); 
 mysql_select_db($database_organizacion, $organizacion);
 
 ?>
